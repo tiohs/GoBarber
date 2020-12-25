@@ -9,9 +9,11 @@
     "dev:debug": "nodemon --inspect src/server.js"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "sequelize": "^6.3.5"
   },
   "devDependencies": {
+    "sequelize-cli": "^6.2.0",
     "sucrase": "^3.16.0"
   }
 }
