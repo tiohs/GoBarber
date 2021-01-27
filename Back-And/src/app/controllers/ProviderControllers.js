@@ -1,8 +1,12 @@
 import user from '../models/User';
 
 class ProviderControllers {
-  index(req, res, net) {
-    res.json({ ok: 'sucess!' });
+  async index(req, res, net) {
+    const providers = await user.findAll({
+      where: { provider: false },
+      attributes: ['id', 'name', 'email', 'avatar_id'],
+    });
+    res.json(providers);
   }
 }
 

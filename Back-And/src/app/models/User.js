@@ -17,13 +17,14 @@ class User extends Model {
     this.addHook('beforeSave', async (user) => {
       if (user.password) {
         user.password_hash = await hash(user.password, 8);
+        user.provider = false;
       }
     });
     return this;
   }
-  static associate(models){ 
+  static associate(models) {
     this.belongsTo(models.File, { foreignKey: 'avatar_id' });
-  }   
+  }
   checkPassword(password) {
     return compare(password, this.password_hash);
   }
