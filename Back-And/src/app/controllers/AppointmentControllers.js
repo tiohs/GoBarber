@@ -1,6 +1,6 @@
 import Appointment from '../models/Appointments';
 import User from '../models/User';
-
+import { startOfHour, parseISO, isBefore } from 'date-fns';
 import * as Yup from 'yup';
 
 class AppointmentController {
@@ -9,6 +9,7 @@ class AppointmentController {
       provider_id: Yup.number().required(),
       date: Yup.date().required(),
     });
+
     if (!(await shema.isValid(req.body))) {
       return res.status(400).json({ error: 'Validation fails ' });
     }
@@ -17,15 +18,24 @@ class AppointmentController {
      * Check if provider_d is a provider
      */
 
-    const isProvider = await User.findOne({
+    const checkIsProvider = await User.findOne({
       where: { id: provider_id, provider: true },
     });
 
-    if (!isProvider) {
+    if (!checkIsProvider) {
       return res
         .status(401)
         .json({ error: 'You can only create appointments with providers ' });
     }
+
+    // Check is dates
+
+    const hourStart = startOfHour(parseISO(date));
+
+    if (isBefore(hourStart, new Date())) {
+      return res.status(400).json({ error: 'Past dates are not permited ' });
+    }
+
     const appointment = await Appointment.create({
       user_id: req.userId,
       provider_id,
