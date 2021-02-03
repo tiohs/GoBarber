@@ -19,6 +19,7 @@ router.use(authMiddleware);
 router.put('/users', UserController.update);
 router.get('/providers', ProveiderController.index);
 router.post('/files', upload.single('file'), FileController.store);
-router.post('/appointments', AppointmentController.store)
+router.post('/appointments', AppointmentController.store);
+router.get('/appointments', AppointmentController.index);
 
 export default router;
