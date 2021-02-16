@@ -1,5 +1,5 @@
 import Sequelize from 'sequelize';
-
+import mongoose from 'mongoose';
 import User from '../app/models/User';
 import File from '../app/models/File';
 import Appointments from '../app/models/Appointments';
@@ -11,6 +11,7 @@ const models = [User, File, Appointments];
 class Database {
   constructor() {
     this.init();
+    this.mongoose();
   }
   init() {
     this.connection = new Sequelize(databaseConfig);
@@ -19,6 +20,9 @@ class Database {
       .map(
         (model) => model.associate && model.associate(this.connection.models)
       );
+  }
+  mongoose() {
+    //
   }
 }
 
