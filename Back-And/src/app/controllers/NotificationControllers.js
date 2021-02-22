@@ -1,7 +1,8 @@
 import Notification from '../schemas/Notification';
+import User from '../models/User';
 
 class NotificationControllers {
-  async index() {
+  async index(req, res) {
     const checkIsProvider = await User.findOne({
       where: { id: req.userId, provider: true },
     });
@@ -17,7 +18,7 @@ class NotificationControllers {
       .sort('createdAt')
       .limit(20);
 
-    res.json(notifications);
+    return res.json(notifications);
   }
 }
 
