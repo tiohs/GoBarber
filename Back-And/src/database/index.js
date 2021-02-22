@@ -11,7 +11,7 @@ const models = [User, File, Appointments];
 class Database {
   constructor() {
     this.init();
-    this.mongoose();
+    this.mongo();
   }
   init() {
     this.connection = new Sequelize(databaseConfig);
@@ -21,8 +21,14 @@ class Database {
         (model) => model.associate && model.associate(this.connection.models)
       );
   }
-  mongoose() {
-    //
+  mongo() {
+    this.mongooseConnection = mongoose.connect(
+      'mongodb://localhost:27017/gobarber',
+      {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      }
+    );
   }
 }
 
