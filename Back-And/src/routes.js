@@ -23,6 +23,7 @@ router.get('/providers', ProveiderController.index);
 router.post('/files', upload.single('file'), FileController.store);
 router.post('/appointments', AppointmentController.store);
 router.get('/appointments', AppointmentController.index);
+router.delete('/appointments/:id', AppointmentController.delete);
 router.get('/schedule', ScheduleController.index);
 router.get('/notification', NotificationController.index);
 router.put('/notification/:id', NotificationController.update);
