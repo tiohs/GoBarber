@@ -1,6 +1,8 @@
+// Criando varivel global 
+@var = http://localhost:3333
 // Criate appointement 
 ###
-POST http://localhost:3333/appointments HTTP/1.1
+POST {{var}}/appointments HTTP/1.1
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjE0MzM0NjgzLCJleHAiOjE2MTQ5Mzk0ODN9.LknhjhNWE8VC1H4vv4Ekl73L5LjL66Nwo_Nnsfv61uQ
 
@@ -10,6 +12,10 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxN
 }
 
 ###
-GET http://localhost:3333/appointments?page=1 HTTP/1.1
+GET {{var}}/appointments?page=1 HTTP/1.1
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjE0MzYwNjQ1LCJleHAiOjE2MTQ5NjU0NDV9.0Vt45Xp8MAPjPVz8jXoeqxghXakVBV8dH7HpO0XUvJQ
+
+### 
+DELETE {{var}}/appointments/11 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjE0MzM0NjgzLCJleHAiOjE2MTQ5Mzk0ODN9.LknhjhNWE8VC1H4vv4Ekl73L5LjL66Nwo_Nnsfv61uQ
