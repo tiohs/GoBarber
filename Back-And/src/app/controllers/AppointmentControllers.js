@@ -111,7 +111,7 @@ class AppointmentController {
       content: `Novo agendamento de ${user.name} para dia ${formatDate}`,
       user: provider_id,
     });
-    return res.json({ appointment, valor });
+    return res.json(appointment);
   }
   async delete(req, res) {
     const appointment = await Appointment.findByPk(req.params.id, {
