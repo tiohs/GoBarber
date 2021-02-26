@@ -22,6 +22,6 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxN
 
 {
   "email" : "carlos@gmail.com",
-  "name" : "Hamilton Silva"
+  "avatar_id" : 2
 }
 ###
