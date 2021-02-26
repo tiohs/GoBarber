@@ -1,7 +1,7 @@
 
 # Fazendo o login do Usuário
  
-POST http://localhost:3000/users HTTP/1.1
+POST http://localhost:3333/users HTTP/1.1
 Content-Type: application/json
 
  {
@@ -9,4 +9,27 @@ Content-Type: application/json
    "email" : "carlos@gmail.com",
    "password": "massango"
  }
+
+
+###
+# Criando session 
+// É necessario mandar email and password 
+
+POST http://localhost:3333/sessions HTTP/1.1
+Content-Type: application/json
+
+{
+   "email" : "carlos@gmail.com",
+   "password": "massango"
+}
+
+### 
+PUT http://localhost:3333/users HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjE0MzM0NjgzLCJleHAiOjE2MTQ5Mzk0ODN9.LknhjhNWE8VC1H4vv4Ekl73L5LjL66Nwo_Nnsfv61uQ
+
+{
+  "email" : "carlos@gmail.com",
+  "name" : "Hamilton Silva"
+}
 ###

@@ -46,7 +46,6 @@ class UserController {
     if (email !== user.email) {
       const userExists = await User.findOne({ where: { email } });
       if (userExists) {
-        console.log(userExists);
         return res.status(400).json({ error: 'User already exist !' });
       }
     }
