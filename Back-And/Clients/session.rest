@@ -1,8 +1,9 @@
 # Criando session user normal
 // É necessario mandar email and password 
+@var = http://localhost:3333
 
 ###
-POST http://localhost:3333/sessions HTTP/1.1
+POST {{var}}/sessions HTTP/1.1
 Content-Type: application/json
 
 {
@@ -15,7 +16,7 @@ Content-Type: application/json
 # Create sesseion for provider 
 
 ### 
-POST http://localhost:3333/sessions HTTP/1.1
+POST {{var}}/sessions HTTP/1.1
 Content-Type: application/json
 
 {

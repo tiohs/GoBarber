@@ -107,7 +107,7 @@ class AppointmentController {
       locale: pt,
     });
 
-    const valor = await Notification.create({
+     await Notification.create({
       content: `Novo agendamento de ${user.name} para dia ${formatDate}`,
       user: provider_id,
     });
