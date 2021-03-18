@@ -4,7 +4,6 @@ import exphbs from 'express-handlebars';
 import nodemailerhbs from 'nodemailer-express-handlebars';
 
 import configMail from '../config/mail';
-import { partials } from 'handlebars';
 
 class Mail {
   constructor() {
@@ -26,10 +25,10 @@ class Mail {
           layoutsDir: resolve(viewPath, 'layouts'),
           partialsDir: resolve(viewPath, 'partials'),
           defaultLayout: 'default',
-          extname: '.hbs'
+          extname: '.hbs',
         }),
         viewPath,
-        extName: '.hbs'
+        extName: '.hbs',
       })
     );
   }
