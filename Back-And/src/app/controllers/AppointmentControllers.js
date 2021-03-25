@@ -6,7 +6,8 @@ import pt from 'date-fns/locale/pt';
 
 import { startOfHour, parseISO, isBefore, format, subHours } from 'date-fns';
 import * as Yup from 'yup';
-import Mail from '../../lib/mail';
+import CancellationMail from '../jobs/CancelletionEmail';
+import Queue from '../../lib/Queue';
 class AppointmentController {
   async index(req, res) {
     const { page = 1 } = req.query;
@@ -142,6 +143,10 @@ class AppointmentController {
     }
     appointment.canceled_at = new Date();
     await appointment.save();
+
+    await Queue.add(CancellationMail.key, {
+      appointment,
+    });
     res.json(appointment);
   }
 }
