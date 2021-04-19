@@ -15,7 +15,7 @@ class Queue {
       this.queues[key] = {
         bee: new Bee(key, {
           redis: redisConfig,
-        }),
+        }), 
         handle,
       };
     });
@@ -31,7 +31,6 @@ class Queue {
       bee.process(handle);
     })
   }
-
 }
 
 export default new Queue();
