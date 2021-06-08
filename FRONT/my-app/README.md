@@ -21,4 +21,13 @@
       color : #333;
     }
   `;
- ```
+ ``` 
+ Quando devo criar o componente estilizado ? 
+  * Quando o cambiamento é e maior 
+    Ex : ```
+            <form>
+              <input></input>
+              .
+              ... Mais outros componentes 
+            </form>
+         ```
