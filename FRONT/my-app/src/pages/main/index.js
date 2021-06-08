@@ -7,5 +7,4 @@ export default function Main () {
       <small>menor</small>
   </Title>
   );
-  
 }
