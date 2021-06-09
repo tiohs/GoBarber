@@ -47,7 +47,12 @@ flex-shrink : por defeito é 1 porque ele reduz o elemento de modo que caba no c
 flex: 1 0; ele é a soma da propriedade do flex-grow e flex-shrink 
 
 ## Quebra de linhas 
-
+ 
  Essas propriedades são ensiridas no container do flex ou div principal 
 
- flex-wrap : 
+` flex-wrap` : wrap; ele quebra a linha imaginamos que a tela é de 200px; e temos 3 elementos do mesmo tamanha 100px; o 3 elemento ira para baixo 
+
+ align-content : ele alinha os elementos quando estão em mais de uma linha Ex : no flex-wrap mais isso no encho x quando flex-direction : row   
+
+O align-content tem as propriedades do justify-content 
+
