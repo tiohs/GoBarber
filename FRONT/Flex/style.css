@@ -1,27 +1,12 @@
-html, body, #app{
-  height: 100%;
+* {
   margin: 0;
-}
-#app {
-  display: flex;
-}
-
-.red {
-  color : #f00;
-  order : 1;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.box {
-  width: 100px;
-  height: 60px;
-  background: #f00;
-  margin: 2px;
+body {
+  background: #e6ecf0;
+  font-family: Arial, Helvetica, sans-serif;
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
 }
-
-.green {
-  background: #0f0;
-}
-
-.blue {
-  background: #00f;
-} 
