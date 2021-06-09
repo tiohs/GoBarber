@@ -6,6 +6,10 @@ html, body, #app{
   display: flex;
 }
 
+.red {
+  
+}
+
 .box {
   width: 100px;
   height: 60px;
