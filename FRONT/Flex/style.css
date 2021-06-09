@@ -11,5 +11,12 @@ html, body, #app{
   height: 60px;
   background: #f00;
   margin: 2px;
- 
 }
+
+.green {
+  background: #0f0;
+}
+
+.blue {
+  background: #00f;
+} 
