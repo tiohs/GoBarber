@@ -52,9 +52,9 @@ flex: 1 0; ele é a soma da propriedade do flex-grow e flex-shrink
 
 ` flex-wrap` : wrap; ele quebra a linha imaginamos que a tela é de 200px; e temos 3 elementos do mesmo tamanha 100px; o 3 elemento ira para baixo 
 
- align-content : ele alinha os elementos quando estão em mais de uma linha Ex : no flex-wrap mais isso no encho x quando `flex-direction` : row    
+` align-content` : ele alinha os elementos quando estão em mais de uma linha Ex : no flex-wrap mais isso no encho x quando `flex-direction` : row    
 
-O align-content tem as propriedades do `justify-content` 
+O `align-content` tem as propriedades do `justify-content` 
 
 `flex-wrap` : wrap-reverse ele mete tudo no reverso 
 
