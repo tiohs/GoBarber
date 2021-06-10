@@ -7,7 +7,12 @@ export default class Repository extends Component {
     const repoName = decodeURIComponent(match.params.repository);
     const [repository, issues] = await Promise.all([
       api.get(`/repos/${repoName}`),
-      api.get(`/repos/${repoName}/issuses`)
+      api.get(`/repos/${repoName}/issuses`, {
+        params: {
+          state: 'open',
+          per_page: 5
+        }
+      })
     ]);
     console.log(repository);
     console.log(issues);
