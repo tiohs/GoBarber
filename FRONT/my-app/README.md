@@ -51,5 +51,21 @@ Neste codigo vou passar atributos com o componente attrs({ type : 'submit' })
   `;
  ``` 
 
+## Acessar as propriedades do elemento por Styled Componente
 
+```js 
+  export const SubmitButton = styled.button.attrs({
+    type : 'submit'
+  })`
+    background: #7159c1;
+    border: 0;
+    padding: 0 15px;
+    margin-left: 10px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  `;
+ ``` 
 
