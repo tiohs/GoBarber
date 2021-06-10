@@ -1,6 +1,6 @@
 POST http://localhost:3333/files
 Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjE0MzM0NjgzLCJleHAiOjE2MTQ5Mzk0ODN9.LknhjhNWE8VC1H4vv4Ekl73L5LjL66Nwo_Nnsfv61uQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjIzMzI3NDExLCJleHAiOjE2MjM5MzIyMTF9.SeOmzXEPI7bFUuyICv5_as_Em2f0tMvZoaDCpn_nf6Q
 
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="file"; filename="1.jpg"
