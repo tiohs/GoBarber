@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Container, Form, SubmitButton } from "./style";
 import { FaGithubAlt, FaPlus } from "react-icons/fa";
 
+import api from '../services/api';
 
 
 export default class Main extends Component {
@@ -15,7 +16,9 @@ export default class Main extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state.newRepo);
+    const{ newRepo } = this.state;
+    const response = api.get(`/repos/${newRepo}`);
+    console.log(response);
   }
 
   render () {
