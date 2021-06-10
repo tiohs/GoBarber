@@ -14,7 +14,10 @@ export default class Main extends Component {
 
   // Carregar os dados do repositorios 
   componentDidMount(){
-
+    const repositories = localStorage.getItem('repositories');
+    if (repositories) {
+      this.setState({ repositories : JSON.parse(repositories) });
+    }
   }
  
   // Salvar os dados do localStore vamos usar o componente 
@@ -24,7 +27,7 @@ export default class Main extends Component {
       localStorage.setItem('repositories', JSON.stringify(repositories));
     }
   }
-  
+
   handleInputChange = e => {
     this.setState({ newRepo : e.target.value }); 
   }
