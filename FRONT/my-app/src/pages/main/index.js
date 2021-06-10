@@ -49,13 +49,12 @@ export default class Main extends Component {
             valeu = {newRepo}
             onChange={this.handleInputChange}
           />
-          <SubmitButton loading = {loading}>
+          <SubmitButton loadings={loading}>
             { loading ? ( 
               <FaSpinner color="#fff" size= {14}/>
             ) : (
               <FaPlus color="#fff" size= {14}/>
             )}
-           
           </SubmitButton>
         </Form>   
       </Container>
