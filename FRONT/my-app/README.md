@@ -69,3 +69,34 @@ Neste codigo vou passar atributos com o componente attrs({ type : 'submit' })
   `;
  ``` 
 
+## Aplicando css dentro de um template styled componente 
+
+export const SubmitButton = styled.button.attrs(props => ({
+  type : 'submit',
+  disabled : props.loadings,
+}))`
+  background: #7159c1;
+  border: 0;
+  padding: 0 15px;
+  margin-left: 10px;
+  border-radius: 4px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+    &[disabled] {
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+    /* Inicio */
+    ${ 
+      props => props.loadings && 
+      css`
+         svg {
+            animation: ${rotate} 2s linear infinite;
+         }
+      `
+    }
+   /* Fim */
+`;
