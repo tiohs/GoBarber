@@ -32,13 +32,14 @@ export default class Main extends Component {
     this.setState({ newRepo : e.target.value }); 
   }
 
-  handleSubmit = e => {
+  handleSubmit = async e => {
     e.preventDefault();
     
     this.setState({ loading : true });
 
     const{ newRepo, repositories } = this.state;
-    const response = api.get(`/repos/${newRepo}`);
+    const response = await api.get(`/repos/${newRepo}`);
+  
     const data = {
       name : response.data.full_name,
     }
