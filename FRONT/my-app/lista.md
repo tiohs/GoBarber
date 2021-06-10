@@ -1,6 +1,6 @@
-[ ] Galileu 
-[ ] O inimigo 
-[ ] Padre Marcelo Rosa - 
+[ ] Galileu
+[ ] O inimigo
+[ ] Padre Marcelo Rosa -
 [ ] Espiro
-[ ] Anderson Frei 
-[ ] 
+[ ] Anderson Frei
+[ ]

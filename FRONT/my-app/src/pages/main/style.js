@@ -1,26 +1,26 @@
-import styled, { css, keyframes} from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
 export const Container = styled.div`
   max-width: 700px;
   background: #fff;
   border-radius: 4px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   padding: 30px;
   margin: 80px auto;
-   h1 {
-     font-size: 20px;
-     display: flex;
-     flex-direction: row;
-     align-items: center;
-     
-     svg {
-       margin-right: 10px;
-     }
-   }
+  h1 {
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    svg {
+      margin-right: 10px;
+    }
+  }
 `;
 
 export const Form = styled.form`
-  margin-top : 30px;
+  margin-top: 30px;
   display: flex;
   flex-direction: row;
   input {
@@ -42,8 +42,8 @@ const rotate = keyframes`
 `;
 
 export const SubmitButton = styled.button.attrs(props => ({
-  type : 'submit',
-  disabled : props.loadings,
+  type: 'submit',
+  disabled: props.loadings,
 }))`
   background: #7159c1;
   border: 0;
@@ -55,19 +55,17 @@ export const SubmitButton = styled.button.attrs(props => ({
   justify-content: center;
   align-items: center;
 
-    &[disabled] {
-      cursor: not-allowed;
-      opacity: 0.6;
-    }
-    ${ 
-      props => props.loadings && 
-      css`
-         svg {
-            animation: ${rotate} 2s linear infinite;
-         }
-      `
-    }
-   
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+  ${props =>
+    props.loadings &&
+    css`
+      svg {
+        animation: ${rotate} 2s linear infinite;
+      }
+    `}
 `;
 
 export const List = styled.ul`
@@ -83,9 +81,9 @@ export const List = styled.ul`
     & + li {
       border-top: 1px solid #eee;
     }
-      a {
-        color: #7159c1;
-        text-decoration: none;
-      }
+    a {
+      color: #7159c1;
+      text-decoration: none;
+    }
   }
 `;

@@ -1,14 +1,14 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import api from '../services/api';
 
 export default class Repository extends Component {
   state = {
-    repository : {},
-    issues : [],
+    repository: {},
+    issues: [],
     loading: true,
-  }
+  };
 
-  async componentDidMount(){
+  async componentDidMount() {
     const { match } = this.props;
     const repoName = decodeURIComponent(match.params.repository);
     const [repository, issues] = await Promise.all([
@@ -16,20 +16,19 @@ export default class Repository extends Component {
       api.get(`/repos/${repoName}/issuses`, {
         params: {
           state: 'open',
-          per_page: 5
-        }
-      })
+          per_page: 5,
+        },
+      }),
     ]);
     this.setState({
       repository: repository.data,
       issues: issues.data,
       loading: false,
-    })
+    });
   }
-  render(){
+  render() {
     const { repository, issues, loading } = this.state;
     const { match } = this.props;
-    return <h1>Repository { decodeURIComponent(match.params.repository )} </h1>
+    return <h1>Repository {decodeURIComponent(match.params.repository)} </h1>;
   }
- 
 }
