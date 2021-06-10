@@ -7,7 +7,9 @@ import api from '../services/api';
 
 export default class Main extends Component {
   state = { 
-    newRepo: '' 
+    newRepo: '',
+    repositories : [],
+    loading: false
   }
  
   handleInputChange = e => {
@@ -16,13 +18,24 @@ export default class Main extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    const{ newRepo } = this.state;
+    
+    this.setState({ loading : true });
+
+    const{ newRepo, repositories } = this.state;
     const response = api.get(`/repos/${newRepo}`);
-    console.log(response);
+    const data = {
+      name : response.data.full_name,
+    }
+
+    this.setState({ 
+      repositories : [...repositories, data],
+      newRepo : '',
+      loading: false
+    });
   }
 
   render () {
-    let { newRepo } = this.state;
+    let { newRepo , loading} = this.state;
     return(
       <Container>  
         <h1>
@@ -36,7 +49,7 @@ export default class Main extends Component {
             valeu = {newRepo}
             onChange={this.handleInputChange}
           />
-          <SubmitButton>
+          <SubmitButton loading = {loading}>
             <FaPlus color="#fff" size= {14}/>
           </SubmitButton>
         </Form>   
