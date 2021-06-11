@@ -4,8 +4,8 @@ _Arquivo react.js_
 
 ```jsx
 <Title error>
-  Main
-  <small>menor</small>
+	Main
+	<small>menor</small>
 </Title>
 ```
 
@@ -13,14 +13,14 @@ _Arquivo styledComponent_
 
 ```js
 export const Title = styled.h1`
-  font-size: 24px;
-  color: ${props => (props.error ? 'red' : '#7159c1')};
-  font-family: Arial, Helvetica, sans-serif;
+	font-size: 24px;
+	color: ${props => (props.error ? 'red' : '#7159c1')};
+	font-family: Arial, Helvetica, sans-serif;
 
-  small {
-    font-size: 14px;
-    color: #333;
-  }
+	small {
+		font-size: 14px;
+		color: #333;
+	}
 `;
 ```
 
@@ -35,16 +35,16 @@ Neste codigo vou passar atributos com o componente attrs({ type : 'submit' })
 
 ```js
 export const SubmitButton = styled.button.attrs({
-  type: 'submit',
+	type: 'submit',
 })`
-  background: #7159c1;
-  border: 0;
-  padding: 0 15px;
-  margin-left: 10px;
-  border-radius: 4px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	background: #7159c1;
+	border: 0;
+	padding: 0 15px;
+	margin-left: 10px;
+	border-radius: 4px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 `;
 ```
 
@@ -52,16 +52,16 @@ export const SubmitButton = styled.button.attrs({
 
 ```js
 export const SubmitButton = styled.button.attrs({
-  type: 'submit',
+	type: 'submit',
 })`
-  background: #7159c1;
-  border: 0;
-  padding: 0 15px;
-  margin-left: 10px;
-  border-radius: 4px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	background: #7159c1;
+	border: 0;
+	padding: 0 15px;
+	margin-left: 10px;
+	border-radius: 4px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 `;
 ```
 
