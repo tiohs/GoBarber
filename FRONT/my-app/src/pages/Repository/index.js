@@ -27,7 +27,7 @@ export default class Repository extends Component {
 		});
 	}
 	render() {
-		const { repository, issues, loading } = this.state;
+		// const { repository, issues, loading } = this.state;
 		const { match } = this.props;
 		return <h1>Repository {decodeURIComponent(match.params.repository)} </h1>;
 	}
