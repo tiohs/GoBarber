@@ -3,7 +3,7 @@ import api from '../services/api';
 import PropTypes from 'prop-types';
 import { Loading, Owner } from './styles';
 import Container from '../../components/Container/index';
-
+import img from './ok.jpg';
 export default class Repository extends Component {
 	static propTypes = {
 		match: PropTypes.shape({
@@ -37,7 +37,7 @@ export default class Repository extends Component {
 		});
 	}
 	render() {
-		const { repository, loading } = this.state;
+		const { loading } = this.state;
 		// repository, issues,
 	
 		if(!loading) {
@@ -46,13 +46,23 @@ export default class Repository extends Component {
 
 		return <Container>
 			<Owner>
+			
 				<img 
-					src={ repository.owner.avatar_url } 
-					alt={ repository.owner.login }
+					src={ img } 
+					alt="Facebook"
 				/>
-				<h1>{ repository.name }</h1>
-				<p>{repository.descrition}</p>
+				<h1>Facebook</h1>
+				<p>Boa rede social</p>
 			</Owner>
 		</Container>
 	}
 }
+
+
+/*
+		{ <img 
+					src={ repository.owner.avatar_url } 
+					alt={ repository.owner.login }
+				/>
+				<h1>{ repository.name }</h1>
+				<p>{repository.descrition}</p> }*/
