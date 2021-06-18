@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-import api from '../services/api';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+
+import api from '../services/api';
 import { Loading, Owner } from './styles';
 import Container from '../../components/Container/index';
 import img from './ok.jpg';
+
 export default class Repository extends Component {
 	static propTypes = {
 		match: PropTypes.shape({
@@ -46,7 +49,7 @@ export default class Repository extends Component {
 
 		return <Container>
 			<Owner>
-			
+				<Link to = "/"> Voltar aos repositorios </Link>			
 				<img 
 					src={ img } 
 					alt="Facebook"
