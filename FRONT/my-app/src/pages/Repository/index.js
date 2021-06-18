@@ -63,7 +63,9 @@ export default class Repository extends Component {
 					<div>
 						<strong>
 							<a href="/escola">Escola</a>
-
+							<span>
+								Css
+							</span>
 						</strong>
 						<p>Hamilton Silva</p>
 					</div>
