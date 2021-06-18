@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { Container, Form, SubmitButton, List } from './style';
 import { FaGithubAlt, FaPlus, FaSpinner } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+
+import { Form, SubmitButton, List } from './style';
+import Container  from '../../components/Container/index';
 
 import api from '../services/api';
 

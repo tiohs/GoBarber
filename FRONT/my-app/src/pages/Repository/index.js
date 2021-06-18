@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import api from '../services/api';
 import PropTypes from 'prop-types';
 import { Loading } from './styles';
+import Container from '../../components/Container/index';
+
 export default class Repository extends Component {
 	static propTypes = {
 		match: PropTypes.shape({
@@ -38,10 +40,12 @@ export default class Repository extends Component {
 		const { loading } = this.state;
 		// repository, issues,
 	
-		if(loading) {
+		if(!loading) {
 			return <Loading>Carregando</Loading>
 		}
 
-		return <h1> Repository</h1>;
+		return <Container>
+
+		</Container>
 	}
 }
