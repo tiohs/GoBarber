@@ -14,11 +14,14 @@ export const Owner = styled.header`
   flex-direction: column;
   align-items: center;
 
+  
+ 
   img {
     width: 120px;
     height: 120px;
     border-radius: 50%;
   }
+
   h1 {
     font-size: 24px;
     margin-top: 10px;
@@ -31,5 +34,12 @@ export const Owner = styled.header`
     line-height: 1.4;
     text-align: center;
     max-width: 400px;
+  }
+
+  a {
+    color: #7159c1;
+    font-size: 16px;
+    text-decoration: none;
+    margin-bottom: 20px;
   }
 `;
