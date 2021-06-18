@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import api from '../services/api';
-import { Loading, Owner } from './styles';
+import { Loading, Owner, IssueList } from './styles';
 import Container from '../../components/Container/index';
 import img from './ok.jpg';
 
@@ -57,6 +57,18 @@ export default class Repository extends Component {
 				<h1>Facebook</h1>
 				<p>Boa rede social</p>
 			</Owner>
+			<IssueList>
+				<li> 
+					<img src={img} alt="ok"/>
+					<div>
+						<strong>
+							<a href="/escola">Escola</a>
+
+						</strong>
+						<p>Hamilton Silva</p>
+					</div>
+				</li>
+			</IssueList>
 		</Container>
 	}
 }
