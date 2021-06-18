@@ -11,6 +11,7 @@ import Queue from '../../lib/Queue';
 class AppointmentController {
   async index(req, res) {
     const { page = 1 } = req.query;
+    page = page ? page : 1; 
     const appointment = await Appointment.findAll({
       where: {
         user_id: req.userId,
