@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import api from '../services/api';
 import PropTypes from 'prop-types';
-
+import { Loading } from './styles';
 export default class Repository extends Component {
 	static propTypes = {
 		match: PropTypes.shape({
@@ -35,8 +35,13 @@ export default class Repository extends Component {
 		});
 	}
 	render() {
-		// const { repository, issues, loading } = this.state;
-		const { match } = this.props;
-		return <h1>Repository {decodeURIComponent(match.params.repository)} </h1>;
+		const { loading } = this.state;
+		// repository, issues,
+	
+		if(loading) {
+			return <Loading>Carregando</Loading>
+		}
+
+		return <h1> Repository</h1>;
 	}
 }
