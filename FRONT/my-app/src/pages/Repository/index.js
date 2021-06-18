@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import api from '../services/api';
 import PropTypes from 'prop-types';
-import { Loading } from './styles';
+import { Loading, Owner } from './styles';
 import Container from '../../components/Container/index';
 
 export default class Repository extends Component {
@@ -37,7 +37,7 @@ export default class Repository extends Component {
 		});
 	}
 	render() {
-		const { loading } = this.state;
+		const { repository, loading } = this.state;
 		// repository, issues,
 	
 		if(!loading) {
@@ -45,7 +45,14 @@ export default class Repository extends Component {
 		}
 
 		return <Container>
-
+			<Owner>
+				<img 
+					src={ repository.owner.avatar_url } 
+					alt={ repository.owner.login }
+				/>
+				<h1>{ repository.name }</h1>
+				<p>{repository.descrition}</p>
+			</Owner>
 		</Container>
 	}
 }
