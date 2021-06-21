@@ -14,9 +14,7 @@ export const Form = styled.form`
 		props.error &&
 			`border: 1px solid red;`
 		}
-		
 	}
-	
 `;
 
 const rotate = keyframes`
