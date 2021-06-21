@@ -35,6 +35,10 @@ export default class Main extends Component {
 		this.setState({ newRepo: e.target.value });
 	};
 
+	ValidRpository = () => {
+		const { repositories, newRepo } = this.state;
+		return !repositories.find(repository => repository === newRepo)[0];
+	} 
 	handleSubmit = async e => {
 		try {
 			e.preventDefault();
@@ -45,6 +49,10 @@ export default class Main extends Component {
 				this.setState({ loading : false});
 				throw new Error('Digite qual quer coisa');
 			}
+			if(this.ValidRpository()){
+				throw new Error('Repository repositorio ');
+			}
+		;
 			const response = await api.get(`/repos/${newRepo}`);
 		
 			const data = {
