@@ -44,7 +44,6 @@ export default class Main extends Component {
 			if(!newRepo) {
 				this.setState({ loading : false});
 				throw new Error('Digite qual quer coisa');
-		
 			}
 			const response = await api.get(`/repos/${newRepo}`);
 		
