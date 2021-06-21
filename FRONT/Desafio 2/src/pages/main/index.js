@@ -41,6 +41,11 @@ export default class Main extends Component {
 
 			this.setState({ loading: true });
 			const { newRepo, repositories } = this.state;
+			if(!newRepo) {
+				this.setState({ loading : false});
+				throw new Error('Digite qual quer coisa');
+		
+			}
 			const response = await api.get(`/repos/${newRepo}`);
 		
 			const data = {
