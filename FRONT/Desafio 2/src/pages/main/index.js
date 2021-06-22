@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { FaGithubAlt, FaPlus, FaSpinner } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-import { Form, SubmitButton, List } from './style';
+import { Form, SubmitButton, List, Filters } from './style';
 import Container  from '../../components/Container/index';
 
 import api from '../services/api';
@@ -12,7 +12,7 @@ export default class Main extends Component {
 		newRepo: '',
 		repositories: [],
 		loading: false,
-		error : false
+		error : false,
 	};
 
 	// Carregar os dados do repositorios
@@ -80,6 +80,11 @@ export default class Main extends Component {
 					<FaGithubAlt />
 					Repositórios
 				</h1>
+				<Filters>
+					<strong>All</strong>
+					<strong>Close</strong>
+					<strong>Open</strong>
+				</Filters>
 				<Form onSubmit={this.handleSubmit}  error={error}>
 					<input
 						type="text"

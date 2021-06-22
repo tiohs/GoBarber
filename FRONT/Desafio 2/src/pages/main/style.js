@@ -72,3 +72,25 @@ export const List = styled.ul`
 		}
 	}
 `;
+
+export const Filters = styled.div`
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	border: 1px solid #eee;
+	padding: 10px;
+	margin: 5px;
+	border-radius: 5px;
+	width: 100%;
+	strong {
+		font-size: 12px;
+		color: #adabab;
+	}
+	strong:hover {
+		color : #312f2f;
+		font-size: 13px;
+		cursor: pointer;
+	}
+
+`;
