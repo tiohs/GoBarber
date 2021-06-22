@@ -71,7 +71,15 @@ export default class Main extends Component {
 		}
 	
 	};
-
+	handleFilterAll(){
+		alert('Olá mundo ');
+	}
+	handleFilterClose(){
+		alert('Fechados');
+	}
+	handleFilterOpen(){
+		alert('Abertos ');
+	}
 	render() {
 		let { newRepo, loading, repositories, error } = this.state;
 		return (
@@ -81,9 +89,9 @@ export default class Main extends Component {
 					Repositórios
 				</h1>
 				<Filters>
-					<strong>All</strong>
-					<strong>Close</strong>
-					<strong>Open</strong>
+					<strong onClick={this.handleFilterAll} >All</strong>
+					<strong onClick={this.handleFilterClose}>Close</strong>
+					<strong onClick={this.handleFilterOpen}>Open</strong>
 				</Filters>
 				<Form onSubmit={this.handleSubmit}  error={error}>
 					<input
