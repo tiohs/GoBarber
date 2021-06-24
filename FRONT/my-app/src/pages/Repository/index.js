@@ -24,6 +24,7 @@ export default class Repository extends Component {
 	async componentDidMount() {
 		const { match } = this.props;
 		const repoName = decodeURIComponent(match.params.repository);
+		console.log('')
 		const [repository, issues] = await Promise.all([
 			api.get(`/repos/${repoName}`),
 			api.get(`/repos/${repoName}/issuses`, {
@@ -33,6 +34,7 @@ export default class Repository extends Component {
 				},
 			}),
 		]);
+		console.log(repository, issues);
 		this.setState({
 			repository: repository.data,
 			issues: issues.data,
@@ -54,6 +56,7 @@ export default class Repository extends Component {
 					src={ img } 
 					alt="Facebook"
 				/>
+			
 				<h1>Facebook</h1>
 				<p>Boa rede social</p>
 			</Owner>

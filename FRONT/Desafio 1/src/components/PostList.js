@@ -9,7 +9,7 @@ class PostList extends Component {
         id: 1,
         author: {
           name: 'Vanessa Romero',
-          avatar: 'https://i.pravatar.cc/150?img=1'
+          avatar: 'https://z-m-scontent.flad4-1.fna.fbcdn.net/v/t1.6435-9/fr/cp0/e15/q65/122779844_3087595691467292_5836498404155056324_n.jpg?_nc_cat=103&ccb=1-3&_nc_sid=85a577&efg=eyJpIjoibyJ9&_nc_eui2=AeFkgHSy-6TGn5QpXPVbZ0RdOGWScuRVy0Y4ZZJy5FXLRo-wg-2iAceI1_PkJbnbI-Y2xGJ2rsPpo16qAHyMtwm6&_nc_ohc=PWLzIbEKZ4UAX-ZAp20&_nc_ad=z-m&_nc_cid=1390&_nc_eh=89ee37680b7bc8cc912ca51d92f9a0b2&_nc_rml=0&_nc_ht=z-m-scontent.flad4-1.fna&tp=14&oh=e72f2d3b2846d6bc77b4db0acaa3c29e&oe=60D9AB11'
         },
         date: '04 Jun 2019',
         content: 'Pessoal, alguém sabe se a Rocketseat está contratando?',
@@ -18,7 +18,7 @@ class PostList extends Component {
             id: 2,
             author: {
               name: 'Diego Fernandes',
-              avatar: 'https://avatars2.githubusercontent.com/u/2254731?v=4'
+              avatar: 'https://z-m-scontent.flad4-1.fna.fbcdn.net/v/t1.6435-9/fr/cp0/e15/q65/202051242_1720452601473356_6152605063003650941_n.jpg?_nc_cat=105&ccb=1-3&_nc_sid=85a577&efg=eyJpIjoibyJ9&_nc_eui2=AeGKJ32IQxcDORhQpw8utYhn6YPQJ2PuLznpg9AnY-4vObiyv0Fl1Hh1_mbsyEsu_zW_gMiv_bXiEEBWxi_CcBl9&_nc_ohc=W3218BbHQ1cAX-7nMKX&_nc_ad=z-m&_nc_cid=1390&_nc_eh=89ee37680b7bc8cc912ca51d92f9a0b2&_nc_rml=0&_nc_ht=z-m-scontent.flad4-1.fna&tp=14&oh=f672050cd0e53baf99f51a77fefe8026&oe=60DABBD4'
             },
             date: '04 Jun 2019',
             content:
@@ -30,7 +30,7 @@ class PostList extends Component {
         id: 3,
         author: {
           name: 'Neil Cook',
-          avatar: 'https://i.pravatar.cc/150?img=8'
+          avatar: 'https://z-m-scontent.flad4-1.fna.fbcdn.net/v/t1.6435-9/fr/cp0/e15/q65/125217596_3452538994841615_1459075241032202472_n.jpg?_nc_cat=105&ccb=1-3&_nc_sid=85a577&efg=eyJpIjoibyJ9&_nc_eui2=AeERKXm4CexDkyjxsBLPVlOjdPudhesXu7B0-52F6xe7sK6dNvx9lat15XTmDeiSXVLv09u3Pg5DxSGFLghq1dtq&_nc_ohc=pQPABOU5tv8AX8OvEXn&_nc_ad=z-m&_nc_cid=1390&_nc_eh=89ee37680b7bc8cc912ca51d92f9a0b2&_nc_rml=0&_nc_ht=z-m-scontent.flad4-1.fna&tp=14&oh=1fe3a9275fe989989fcaaf0694f088fc&oe=60D9D008'
         },
         date: '04 Jun 2019',
         content:
