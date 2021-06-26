@@ -167,7 +167,7 @@ div.bar .content .actions {
   display: flex;
 }
 div.bar .content .actions button {
-
+  background: #fff;
   width: 90px;
   height: 34px;
   text-align: center;
@@ -211,4 +211,74 @@ div.wrapper-content aside.profile span {
 div.wrapper-content aside.profile p {
   font-size: 14px;
   color: #1f2226;
+  margin-top: 15px;
 }
+
+div.wrapper-content aside.profile ul {
+  margin-top: 20px;
+  list-style: none;
+}
+
+div.wrapper-content aside.profile ul li {
+  font-size: 14px;
+  color: #657786;
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+div.wrapper-content aside.profile ul li::first-letter {
+  margin-top: 0px;
+}
+
+div.wrapper-content aside.profile ul li img {
+  margin-right: 10px;
+} 
+
+div.wrapper-content aside.profile .widget {
+  margin-top: 20px;
+}
+
+div.wrapper-content aside.profile .widget strong {
+  font-weight: normal;
+  color: #3bb9e3;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+div.wrapper-content aside.profile .widget strong img {
+  margin-right: 10px;
+}
+
+div.wrapper-content aside.profile .fallowers ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+div.wrapper-content aside.profile .fallowers ul li {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: #d0d5d9;
+  flex-shrink: 0;
+  margin: 0 5px 10px 0;
+}
+
+
+div.wrapper-content aside.profile .images ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+div.wrapper-content aside.profile .images ul li {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  background: #d0d5d9;
+  flex-shrink: 0;
+  margin: 0 5px 10px 0;
+}
+
+
