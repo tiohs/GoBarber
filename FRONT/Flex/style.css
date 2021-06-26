@@ -165,5 +165,13 @@ div.bar .content ul li strong{
 }
 
 div.bar .content .actions button {
-  color: red;
+  background: #3bb9e3;
+  width: 90px;
+  height: 34px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
+  color: #fff;
+  border: 0;
+  border-radius: 15px;
 }
