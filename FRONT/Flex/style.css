@@ -164,4 +164,6 @@ div.bar .content ul li strong{
   margin-top: 2px ;
 }
 
-
+div.bar .content .actions button {
+  color: red;
+}
