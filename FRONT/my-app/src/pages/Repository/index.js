@@ -27,14 +27,14 @@ export default class Repository extends Component {
 		console.log('')
 		const [repository, issues] = await Promise.all([
 			api.get(`/repos/${repoName}`),
-			api.get(`/repos/${repoName}/issuses`, {
+			api.get(`/repos/${repoName}/issues`, {
 				params: {
 					state: 'open',
 					per_page: 5,
 				},
 			}),
 		]);
-		console.log(repository, issues);
+		console.log(repository, issues)
 		this.setState({
 			repository: repository.data,
 			issues: issues.data,
@@ -42,7 +42,7 @@ export default class Repository extends Component {
 		});
 	}
 	render() {
-		const { loading } = this.state;
+		const { loading, repository } = this.state;
 		// repository, issues,
 	
 		if(!loading) {
@@ -53,12 +53,12 @@ export default class Repository extends Component {
 			<Owner>
 				<Link to = "/"> Voltar aos repositorios </Link>			
 				<img 
-					src={ img } 
+					src='{repository.owner.avatar_url}'
 					alt="Facebook"
 				/>
 			
-				<h1>Facebook</h1>
-				<p>Boa rede social</p>
+				<h1>repository.owner.login</h1>
+				<p>repository.description</p>
 			</Owner>
 			<IssueList>
 				<li> 
@@ -85,4 +85,4 @@ export default class Repository extends Component {
 					alt={ repository.owner.login }
 				/>
 				<h1>{ repository.name }</h1>
-				<p>{repository.descrition}</p> }*/
+				<p>{repository.description}</p> }*/
