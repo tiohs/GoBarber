@@ -18,14 +18,14 @@ export default class Repository extends Component {
 	state = {
 		repository: {},
 		issues: [],
-		loading: true,
+		loading: false,
 	};
 
 	async componentDidMount() {
 		const { match } = this.props;
 		const repoName = decodeURIComponent(match.params.repository);
 		console.log('')
-		const [repository, issues] = await Promise.all([
+		const [repositorios, issue] = await Promise.all([
 			api.get(`/repos/${repoName}`),
 			api.get(`/repos/${repoName}/issues`, {
 				params: {
@@ -34,17 +34,15 @@ export default class Repository extends Component {
 				},
 			}),
 		]);
-		console.log(repository, issues)
+	
 		this.setState({
-			repository: repository.data,
-			issues: issues.data,
-			loading: false,
+			repository: repositorios.data,
+			issues: issue.data,
+			loading: true,
 		});
 	}
 	render() {
-		const { loading, repository } = this.state;
-		// repository, issues,
-	
+		const { loading, repository, issues } = this.state;
 		if(!loading) {
 			return <Loading>Carregando</Loading>
 		}
@@ -53,26 +51,31 @@ export default class Repository extends Component {
 			<Owner>
 				<Link to = "/"> Voltar aos repositorios </Link>			
 				<img 
-					src='{repository.owner.avatar_url}'
+					src={repository.owner.avatar_url}
 					alt="Facebook"
 				/>
 			
-				<h1>repository.owner.login</h1>
-				<p>repository.description</p>
+				<h1>{repository.owner.login}</h1>
+				<p>{repository.description}</p>
 			</Owner>
 			<IssueList>
-				<li> 
-					<img src={img} alt="ok"/>
+				{issues.map(issue => (
+					<li key={String(issue.id)}> 
+					<img src={issue.user.avatar_url} alt={ issue.user.login }/>
 					<div>
 						<strong>
-							<a href="/escola">Escola</a>
-							<span>
-								Css
-							</span>
+							<a href={issue.html_url}>{issue.title}</a>
+							{ issue.labels.map(label => (
+								<span key={String(label.id)}>
+									{ label.name }
+								</span>
+							))}
 						</strong>
-						<p>Hamilton Silva</p>
+						<p>{issue.user.login}</p>
 					</div>
 				</li>
+				))}
+				
 			</IssueList>
 		</Container>
 	}
