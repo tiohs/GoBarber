@@ -367,7 +367,6 @@ div.wrapper-content .timeline ul.posts li .info p {
 }
 div.wrapper-content .timeline ul.posts li .info .actions {
   display: flex;
-  justify-content: space-between;
   margin-top: 5px;
 } 
 div.wrapper-content .timeline ul.posts li .info .actions a{
@@ -381,7 +380,7 @@ div.wrapper-content .timeline ul.posts li .info .actions a{
 
 }
 div.wrapper-content .timeline ul.posts li .info .actions a img {
-  margin-right: 5px;
+  margin-right: 10px;
 }
 
 
