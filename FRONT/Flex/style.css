@@ -359,6 +359,12 @@ div.wrapper-content .timeline ul.posts li .info strong span {
   color: #7B8B9A;
   font-size: 13px;
 }
+div.wrapper-content .timeline ul.posts li .info p {
+  font-size: 14px;
+  margin-top: 5px;
+  color: #1f2326;
+  font-weight: normal;
+}
 
 
 
