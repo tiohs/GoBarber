@@ -283,6 +283,8 @@ div.wrapper-content aside.profile .images ul li {
 
 div.wrapper-content .timeline {
   flex: 1;
+  background: #fff;
+  margin: 10 20px;
 }
 div.wrapper-content .timeline div.post {
 margin: 15px;
