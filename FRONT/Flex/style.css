@@ -339,14 +339,12 @@ div.wrapper-content aside.widgets .follow ul li {
 div.wrapper-content aside.widgets .follow ul li .profile {
   display: flex;
   align-items: center;
-  
 }
 
 div.wrapper-content aside.widgets .follow ul li .profile img {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-
 }
 
 div.wrapper-content aside.widgets .follow ul li .profile .info {
