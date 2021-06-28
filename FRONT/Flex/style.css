@@ -302,7 +302,7 @@ div.wrapper-content .timeline nav a:first-child {
   margin: 0;
 }
 div.wrapper-content .timeline nav a.active {
-
+  color: #1f2226;
 }
 div.wrapper-content .timeline div.post {
 margin: 15px;
