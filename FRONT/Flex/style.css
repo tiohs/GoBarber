@@ -365,7 +365,25 @@ div.wrapper-content .timeline ul.posts li .info p {
   color: #1f2326;
   font-weight: normal;
 }
-div.wrapper-content .timeline ul.posts li 
+div.wrapper-content .timeline ul.posts li .info .actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+} 
+div.wrapper-content .timeline ul.posts li .info .actions a{
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: bold;
+  color: #667580;
+  margin-left: 30px;
+  text-decoration: none;
+
+}
+div.wrapper-content .timeline ul.posts li .info .actions a img {
+  margin-right: 5px;
+}
+
 
 
 div.wrapper-content aside.widgets {
