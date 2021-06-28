@@ -284,7 +284,25 @@ div.wrapper-content aside.profile .images ul li {
 div.wrapper-content .timeline {
   flex: 1;
   background: #fff;
-  margin: 10 20px;
+  margin: 10px 20px;
+}
+div.wrapper-content .timeline nav {
+  border-bottom: 1px solid #e6ecf0;
+  padding: 10px 15px;
+}
+
+div.wrapper-content .timeline nav a {
+  font-size: 18px;
+  text-decoration: none;
+  color: #3bb9e3;
+  font-weight: bold;
+  margin-left: 20px;
+}
+div.wrapper-content .timeline nav a:first-child {
+  margin: 0;
+}
+div.wrapper-content .timeline nav a.active {
+
 }
 div.wrapper-content .timeline div.post {
 margin: 15px;
