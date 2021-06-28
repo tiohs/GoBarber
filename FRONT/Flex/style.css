@@ -335,6 +335,11 @@ div.wrapper-content aside.widgets .follow ul li {
   padding-bottom: 10px;
   margin-bottom: 10px;
 }
+div.wrapper-content aside.widgets .follow ul li:last-child {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  border: 0px;
+}
 
 div.wrapper-content aside.widgets .follow ul li .profile {
   display: flex;
@@ -377,3 +382,10 @@ div.wrapper-content aside.widgets .follow ul li .profile .info button {
   margin-right: 19px;
   margin-top: 4px;
 }
+
+div.wrapper-content aside.widgets .follow ul li > a {
+  color: #ccd6dd;
+  text-decoration: none;
+  font-size: 14px;
+}
+
