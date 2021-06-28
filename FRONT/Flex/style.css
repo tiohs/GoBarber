@@ -350,6 +350,18 @@ div.wrapper-content .timeline ul.posts li img.avatar {
   margin-right: 10px;
 }
 
+div.wrapper-content .timeline ul.posts li .info strong {
+  font-size: 14px;
+  color: #1f2326;
+}
+div.wrapper-content .timeline ul.posts li .info strong span {
+  font-weight: normal;
+  color: #7B8B9A;
+  font-size: 13px;
+}
+
+
+
 div.wrapper-content aside.widgets {
   width: 290px;
 }
