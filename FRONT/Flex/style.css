@@ -289,6 +289,7 @@ div.wrapper-content .timeline {
 div.wrapper-content .timeline nav {
   border-bottom: 1px solid #e6ecf0;
   padding: 10px 15px;
+  
 }
 
 div.wrapper-content .timeline nav a {
@@ -297,10 +298,13 @@ div.wrapper-content .timeline nav a {
   color: #3bb9e3;
   font-weight: bold;
   margin-left: 20px;
+  position: relative;
+
 }
 div.wrapper-content .timeline nav a:first-child {
   margin: 0;
 }
+
 div.wrapper-content .timeline nav a.active {
   color: #1f2226;
 }
