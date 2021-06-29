@@ -13,7 +13,10 @@ export const  ProductTable = styled.table`
     text-align: left;
     padding: 12px;
   }
-
+  tbody td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+  }
   
 `;
 
