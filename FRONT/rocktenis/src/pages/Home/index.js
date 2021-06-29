@@ -12,8 +12,11 @@ export default class Home extends Component {
 
   async componentDidMount(){
     const response = await api.get('products');
-
-    this.setState({ products: response.data });
+    const data = response.data.map(product => ({
+      ...product,
+      priceFormatted: formatPrice(product.price)
+    }))
+    this.setState({ products: data });
   }
   render (){
     const { products } = this.state;
@@ -23,7 +26,7 @@ export default class Home extends Component {
        <li key={product.id}>
         <img src={tenis} alt="" />
         <strong>{ product.title }</strong>
-        <span>{ product.price }</span>
+        <span>{ product.priceFormatted }</span>
         <button type="button">
           <div>
             <MdAddShoppingCart size = {16 } color="#FFF"/> 3
