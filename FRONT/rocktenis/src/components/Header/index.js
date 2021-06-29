@@ -13,10 +13,10 @@ export default function Header(){
       </Link>
       <Cart to="/cart">
         <div>
-          <strong>Meu carrinho</strong>
-          <span>3 itens</span>
-          <MdShoppingBasket size={36} color="#FFF"/>
+            <strong>Meu carrinho</strong>
+            <span>3 itens</span>
         </div>
+          <MdShoppingBasket size={36} color="#FFF"/>
       </Cart>
     </Container>
   );
