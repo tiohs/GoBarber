@@ -21,8 +21,8 @@ export default class Home extends Component {
      { products.map(product => (
        <li key={product.id}>
         <img src={tenis} alt="" />
-        <strong>Tênis muito legal</strong>
-        <span>R$129,90</span>
+        <strong>{ product.title }</strong>
+        <span>{ product.price }</span>
         <button type="button">
           <div>
             <MdAddShoppingCart size = {16 } color="#FFF"/> 3
