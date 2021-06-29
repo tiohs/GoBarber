@@ -3,6 +3,7 @@ import { ProductList } from './styles';
 import { MdAddShoppingCart } from 'react-icons/md';
 import tenis from '../../assets/images/ok.jpg';
 import api from '../../services/api';
+import { formatPrice } from '../../util/format';
 
 export default class Home extends Component { 
   state = {
