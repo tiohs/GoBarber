@@ -1,5 +1,8 @@
 import { createStore } from 'redux';
 
-const store = createStore();
+function cart() {
+  return [];
+}
+const store = createStore(cart);
 
 export default store;
