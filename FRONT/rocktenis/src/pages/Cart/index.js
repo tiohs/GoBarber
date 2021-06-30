@@ -40,7 +40,7 @@ class Cart extends Component {
               <button>
                 <MdRemoveCircleOutline size={20} color="#7159c1"/>
               </button>
-              <input type="numeber" readOnly value={2}/>
+              <input type="numeber" readOnly value={product.amount}/>
               <button>
                 <MdAddCircleOutline size={20} color="#7159c1"/>
               </button>
