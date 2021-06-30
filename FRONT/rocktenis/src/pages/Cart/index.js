@@ -29,10 +29,10 @@ class Cart extends Component {
           </td>
           <td>
             <strong>
-              Tênis muito massa 
+            {product.title}
             </strong>
             <span>
-              R$129,90
+              {product.priceFormatted}
             </span>
           </td>
           <td>
