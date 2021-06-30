@@ -23,7 +23,7 @@ class Cart extends Component {
         <tbody>
           { cart.map(product => (
 
-          <tr>
+          <tr key={product.id}>
           <td>
             <img src={tenis} alt="Tenis" />
           </td>
