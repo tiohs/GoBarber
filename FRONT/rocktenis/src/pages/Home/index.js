@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import { bindActionCreators } from 'redux';
 import { ProductList } from './styles';
 import { MdAddShoppingCart } from 'react-icons/md';
 import tenis from '../../assets/images/ok.jpg';
@@ -22,8 +22,8 @@ class Home extends Component {
     this.setState({ products: data });
   }
   handleAddProduct = product => {
-    const { dispatch } = this.props;
-    dispatch(cartAtions.addToCart(product));
+    const { addToCart } = this.props;
+    addToCart(product);
   };
   render() {
     const { products } = this.state;
@@ -51,4 +51,6 @@ class Home extends Component {
   }
 }
 
-export default connect()(Home);
+const mapStateToProps = dispatch => bindActionCreators(cartAtions, dispatch);
+
+export default connect(null, mapStateToProps)(Home);
