@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-import background from '../assets/images/back.svg';
+import background from '../assets/images/back.svg'
 
 export default createGlobalStyle`
   * {
@@ -10,8 +10,7 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
   body {
-    background: #191920 url(${background}) no-repeat center top;
-    --webkit-font-smoothing: antialiased;
+     background: #191920 url(${background}) no-repeat center top;
   }
   body, input, button {
     font: 14px 'Roboto', sans-serif;

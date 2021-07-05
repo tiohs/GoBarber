@@ -8,7 +8,7 @@ import tenis from '../../assets/images/ok.jpg';
 class Cart extends Component { 
   
   render(){
-    const { cart } = this.props;
+    const { cart, dispatch } = this.props;
     return (<Container>
       <ProductTable>
         <thead>
@@ -50,7 +50,10 @@ class Cart extends Component {
             <strong>R$ 258,80</strong>
           </td>
           <td>
-            <button type="button">
+            <button 
+              type="button" 
+              onClick={() => { dispatch({ type : 'REMOVE_FROM_CART', id: product.id}) }}
+            >
               <MdDelete size={20} color="#7159c1"/>
             </button>
           </td>

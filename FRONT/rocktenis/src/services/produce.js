@@ -3,7 +3,7 @@ export default class AddPoductCart {
     this.state = [...state];
     this.action = {...action};
   }
-  existProducts (){    
+  existProducts (id){    
     return this.state.findIndex(product => product.id === this.action.product.id);
   }
   add(){
@@ -15,6 +15,13 @@ export default class AddPoductCart {
         ...this.action.product,
         amount: 1,
       })
+    }
+  }
+
+  remove(){
+    const productIndex = this.state.findIndex(p => p.id === this.action.id);
+    if(productIndex >= 0) {
+      this.state.splice(productIndex, 1);
     }
   }
   getObject (){
