@@ -22,10 +22,7 @@ class Home extends Component {
   }
   handleAddProduct = product => {
     const { dispatch } = this.props;
-    dispatch({
-      type: 'ADD_TO_CART',
-      product,
-    });
+    dispatch();
   }
   render (){
     const { products } = this.state;
