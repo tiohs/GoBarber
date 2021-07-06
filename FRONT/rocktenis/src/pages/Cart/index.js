@@ -12,6 +12,13 @@ import { Container, ProductTable, Total } from './styles';
 import tenis from '../../assets/images/ok.jpg';
 
 class Cart extends Component {
+  updateAmount = this.props.updateAmount;
+  increment(product) {
+    this.updateAmount(product.id, product.amount + 1);
+  }
+  decrement(product) {
+    this.updateAmount(product.id, product.amount - 1);
+  }
   render() {
     const { cart, removeFromCart } = this.props;
     return (
@@ -38,11 +45,17 @@ class Cart extends Component {
                 </td>
                 <td>
                   <div>
-                    <button>
+                    <button
+                      type="button"
+                      onClick={() => this.increment(product)}
+                    >
                       <MdRemoveCircleOutline size={20} color="#7159c1" />
                     </button>
                     <input type="numeber" readOnly value={product.amount} />
-                    <button>
+                    <button
+                      type="button"
+                      onClick={() => this.decrement(product)}
+                    >
                       <MdAddCircleOutline size={20} color="#7159c1" />
                     </button>
                   </div>

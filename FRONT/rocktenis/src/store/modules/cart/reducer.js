@@ -11,6 +11,9 @@ export default function cart(state = [], action) {
     case '@Cart/Remove':
       produto.remove();
       return produto.getObject();
+    case '@Cart/UPDATE_AMOUNT':
+      produto.updateAmount();
+      return produto.getObject();
     default:
       return state;
   }
