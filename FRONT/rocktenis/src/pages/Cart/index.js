@@ -14,10 +14,10 @@ import tenis from '../../assets/images/ok.jpg';
 class Cart extends Component {
   updateAmount = this.props.updateAmount;
   increment(product) {
-    this.updateAmount(product.id, product.amount + 1);
+    this.updateAmount(product.id, product.amount - 1);
   }
   decrement(product) {
-    this.updateAmount(product.id, product.amount - 1);
+    this.updateAmount(product.id, product.amount + 1);
   }
   render() {
     const { cart, removeFromCart } = this.props;
