@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { formatPrice } from '../../util/format';
 import * as cartAtions from '../../store/modules/cart/actions';
 import {
   MdRemoveCircleOutline,
@@ -20,7 +21,7 @@ class Cart extends Component {
     this.updateAmount(product.id, product.amount + 1);
   }
   render() {
-    const { cart, removeFromCart } = this.props;
+    const { cart, removeFromCart, total } = this.props;
     return (
       <Container>
         <ProductTable>
@@ -61,7 +62,7 @@ class Cart extends Component {
                   </div>
                 </td>
                 <td>
-                  <strong>R$ 258,80</strong>
+                  <strong>{product.subTotalForm}</strong>
                 </td>
                 <td>
                   <button
@@ -81,7 +82,7 @@ class Cart extends Component {
           <button type="button">Finalizar pedido </button>
           <Total>
             <span>Total</span>
-            <strong>R$1920,28</strong>
+            <strong>{total}</strong>
           </Total>
         </footer>
       </Container>
@@ -91,6 +92,14 @@ class Cart extends Component {
 const mapStateToProp = dispatch => bindActionCreators(cartAtions, dispatch);
 
 const mapStateToProps = state => ({
-  cart: state.cart,
+  cart: state.cart.map(product => ({
+    ...product,
+    subTotalForm: formatPrice(product.price * product.amount),
+  })),
+  total: formatPrice(
+    state.cart.reduce((total, product) => {
+      return total + product.price * product.amount;
+    }, 0),
+  ),
 });
 export default connect(mapStateToProps, mapStateToProp)(Cart);
