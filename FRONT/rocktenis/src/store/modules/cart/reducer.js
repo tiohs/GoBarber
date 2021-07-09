@@ -5,7 +5,7 @@ export default function cart(state = [], action) {
   // Porque o redux quando e chamado ele actualiza todos os state
   const produto = new ProductOperaction(state, action);
   switch (action.type) {
-    case '@Cart/ADD':
+    case '@Cart/ADD_REQUEST':
       produto.add();
       return produto.getObject();
     case '@Cart/Remove':
