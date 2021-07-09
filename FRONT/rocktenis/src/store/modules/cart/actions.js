@@ -5,10 +5,10 @@ export function addToCartRequest(id) {
   };
 }
 
-export function addToCartSucess(id) {
+export function addToCartSucess(product) {
   return {
     type: '@Cart/ADD_SUCESS',
-    id,
+    product,
   };
 }
 
