@@ -22,8 +22,9 @@ class Home extends Component {
     this.setState({ products: data });
   }
   handleAddProduct = id => {
-    const { addToCartRequest } = this.props;
-    addToCartRequest(id);
+    // const { addToCartRequest } = this.props;
+    // addToCartRequest(id);
+    console.log(id);
   };
   render() {
     const { products } = this.state;
