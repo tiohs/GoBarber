@@ -8,4 +8,4 @@ function* addToCart(id) {
   yield put(addToCartSucess(response.date));
 }
 
-export default all([takeLatest('@Cart/ADD_REQUEST', addToCart)]);
+export default all([takeLatest('@Cart/ADD_SUCESS', addToCart)]);
