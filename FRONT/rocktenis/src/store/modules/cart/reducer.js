@@ -1,11 +1,8 @@
 import produce from 'immer';
 
-import ProductOperaction from '../../../services/produce';
-
 export default function cart(state = [], action) {
   // De modo que os state não sejam repitidos as suas chamadas
   // Porque o redux quando e chamado ele actualiza todos os state
-  const produto = new ProductOperaction(state, action);
   switch (action.type) {
     case '@Cart/ADD_SUCESS':
       return produce(state, draft => {
@@ -14,11 +11,23 @@ export default function cart(state = [], action) {
       });
 
     case '@Cart/Remove':
-      produto.remove();
-      return produto.getObject();
-    case '@Cart/UPDATE_AMOUNT':
-      produto.updateAmount();
-      return produto.getObject();
+      return produce(state, draft => {
+        const productIndex = draft.findIndex(p => p.id === action.id);
+        if (productIndex >= 0) {
+          draft.splice(productIndex, 1);
+        }
+      });
+    case '@Cart/UPDATE_AMOUNT': {
+      if (action.amount <= 0) {
+        return state;
+      }
+      return produce(state, draft => {
+        const productIndex = draft.findIndex(p => p.id === action.id);
+        if (productIndex >= 0) {
+          draft[productIndex].amount = Number(action.amount);
+        }
+      });
+    }
     default:
       return state;
   }
