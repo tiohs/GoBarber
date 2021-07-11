@@ -11,6 +11,7 @@ import * as cartAtions from '../../store/modules/cart/actions';
 class Home extends Component {
   state = {
     products: [],
+    loading: false,
   };
 
   async componentDidMount() {
