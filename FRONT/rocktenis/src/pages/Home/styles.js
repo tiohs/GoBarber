@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { darken } from 'polished';
 export const ProductList = styled.ul`
   display: grid;
@@ -53,6 +53,15 @@ export const ProductList = styled.ul`
   }
 `;
 
+const rotate = keyframes`
+  form {
+    transform : rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
 export const Loading = styled.div`
   color: #fff;
   background-color: #191920;
@@ -62,7 +71,7 @@ export const Loading = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
-  h1 {
-    display: block;
+  svg {
+    animation: ${rotate} 2s linear infinite;
   }
 `;

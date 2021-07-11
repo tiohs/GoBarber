@@ -37,8 +37,8 @@ class Home extends Component {
 
     if (!loading) {
       return (
-        <Loading>
-          <FaSpinner size={16} />
+        <Loading loadings={loading}>
+          <FaSpinner size={24} />
         </Loading>
       );
     }
