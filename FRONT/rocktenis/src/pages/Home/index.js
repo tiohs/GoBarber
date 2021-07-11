@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { ProductList } from './styles';
+import { ProductList, Loading } from './styles';
 import { MdAddShoppingCart } from 'react-icons/md';
 import tenis from '../../assets/images/ok.jpg';
 import api from '../../services/api';
@@ -26,10 +26,16 @@ class Home extends Component {
     const { addToCartRequest } = this.props;
     addToCartRequest(id);
   };
+
   render() {
     const { products } = this.state;
     const { amount } = this.props;
+    const { loading } = this.state;
+    // repository, issues,
 
+    if (!loading) {
+      return <Loading>Carregando</Loading>;
+    }
     return (
       <ProductList>
         {products.map(product => (

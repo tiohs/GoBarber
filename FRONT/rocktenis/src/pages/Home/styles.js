@@ -55,6 +55,7 @@ export const ProductList = styled.ul`
 
 export const Loading = styled.div`
   color: #fff;
+  background-color: #191920;
   font-size: 30px;
   font-weight: bold;
   display: flex;
