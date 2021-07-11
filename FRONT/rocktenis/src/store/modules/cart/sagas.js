@@ -15,6 +15,8 @@ function* addToCart(action) {
   const currentAmount = productExists ? productExists.amount : 0;
   const amount = currentAmount + 1;
   if (amount > stockAmount) {
+    console.log('Não tem produto ');
+    return;
   }
   if (productExists) {
     yield put(updateAmount(id, amount));
