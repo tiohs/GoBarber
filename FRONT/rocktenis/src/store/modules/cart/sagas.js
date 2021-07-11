@@ -32,4 +32,18 @@ function* addToCart(action) {
   }
 }
 
-export default all([takeLatest('@Cart/ADD_REQUEST', addToCart)]);
+function* updateAmount({ id, amount }) {
+  if (amount <= 0) return;
+  const stock = yield call(api.get, `stock/${id}`);
+  const stockAmount = stock.data.amount;
+
+  if (stockAmount < amount) {
+    toast.error('Quantidade solicitada fora de estoque ');
+    return;
+  }
+  yield put(updateAmountSuccess(id, amount));
+}
+export default all([
+  takeLatest('@Cart/ADD_REQUEST', addToCart),
+  takeLatest('@Cart/UPDATE_AMOUNT_RESQUEST', updateAmount),
+]);
