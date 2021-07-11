@@ -1,3 +1,5 @@
+import produce from 'immer';
+
 import ProductOperaction from '../../../services/produce';
 
 export default function cart(state = [], action) {
@@ -6,8 +8,11 @@ export default function cart(state = [], action) {
   const produto = new ProductOperaction(state, action);
   switch (action.type) {
     case '@Cart/ADD_SUCESS':
-      produto.add();
-      return produto.getObject();
+      return produce(state, draft => {
+        const { product } = action;
+        draft.push(product);
+      });
+
     case '@Cart/Remove':
       produto.remove();
       return produto.getObject();
