@@ -12,7 +12,7 @@ function App() {
     <Provider store={store}>
       <BrowserRouter>
         <GlobalStyle />
-        <ToastContainer />
+        <ToastContainer autoClose={3000} />
         <Header />
         <Routes />
       </BrowserRouter>
