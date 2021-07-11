@@ -13,12 +13,12 @@ import { Container, ProductTable, Total } from './styles';
 import tenis from '../../assets/images/ok.jpg';
 
 class Cart extends Component {
-  updateAmount = this.props.updateAmount;
+  updateAmountRequest = this.props.updateAmountRequest;
   increment(product) {
-    this.updateAmount(product.id, product.amount - 1);
+    this.updateAmountRequest(product.id, product.amount - 1);
   }
   decrement(product) {
-    this.updateAmount(product.id, product.amount + 1);
+    this.updateAmountRequest(product.id, product.amount + 1);
   }
   render() {
     const { cart, removeFromCart, total } = this.props;

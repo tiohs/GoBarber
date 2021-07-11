@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 
 import { formatPrice } from '../../../util/format';
 import api from '../../../services/api';
-import { addToCartSucess, updateAmount } from './actions';
+import { addToCartSucess, updateAmountSuccess } from './actions';
 
 function* addToCart(action) {
   const { id } = action;
@@ -20,7 +20,7 @@ function* addToCart(action) {
     return;
   }
   if (productExists) {
-    yield put(updateAmount(id, amount));
+    yield put(updateAmountSuccess(id, amount));
   } else {
     const response = yield call(api.get, `/products/${id}`);
     const data = {
