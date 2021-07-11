@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { ProductList, Loading } from './styles';
 import { MdAddShoppingCart } from 'react-icons/md';
+import { FaSpinner } from 'react-icons/fa';
+
+import { ProductList, Loading } from './styles';
 import tenis from '../../assets/images/ok.jpg';
 import api from '../../services/api';
 import { formatPrice } from '../../util/format';
@@ -20,7 +22,7 @@ class Home extends Component {
       ...product,
       priceFormatted: formatPrice(product.price),
     }));
-    this.setState({ products: data });
+    this.setState({ products: data, loading: true });
   }
   handleAddProduct = id => {
     const { addToCartRequest } = this.props;
@@ -34,7 +36,11 @@ class Home extends Component {
     // repository, issues,
 
     if (!loading) {
-      return <Loading>Carregando</Loading>;
+      return (
+        <Loading>
+          <FaSpinner size={16} />
+        </Loading>
+      );
     }
     return (
       <ProductList>

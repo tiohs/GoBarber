@@ -62,4 +62,7 @@ export const Loading = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
+  h1 {
+    display: block;
+  }
 `;
