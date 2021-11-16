@@ -7,12 +7,12 @@ sessionsRouter.post('/', async (request, response) => {
   const { email, password } = request.body;
   const authenticateUser = new AuthenticateUserService();
   try {
-    const { user } = await authenticateUser.execute({
+    const { user, token } = await authenticateUser.execute({
       email,
       password,
     });
 
-    response.json({ user });
+    response.json({ user, token });
   } catch ({ message }) {
     response.json({ message });
   }
