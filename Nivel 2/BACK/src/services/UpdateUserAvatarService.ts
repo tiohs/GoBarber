@@ -3,6 +3,7 @@ import path from 'path';
 import fs from 'fs';
 import User from '../models/Users';
 import uploadAvatar from '../config/uploads';
+import AppError from '../error/AppError';
 
 interface Request {
   userId : string,
@@ -26,7 +27,7 @@ class UpdateUserAvatarService {
       }
     }
     if (!avatarFilename) {
-      throw new Error('File name is not Exist ');
+      throw new AppError('File name is not Exist ', 401);
     }
     user.avatar = avatarFilename;
 
