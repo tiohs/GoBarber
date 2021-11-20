@@ -10,21 +10,15 @@ const usersRouter = Router();
 const upload = multer(uploadConfig);
 
 usersRouter.post('/', async (request, response) => {
-  try {
-    const { name, email, password } = request.body;
+  const { name, email, password } = request.body;
+  const createUser = new CreateUserService();
 
-    const createUser = new CreateUserService();
-
-    await createUser.execute({
-      name,
-      email,
-      password,
-    });
-
-    return response.json({ name, email });
-  } catch ({ message }) {
-    return response.status(400).json({ error: message });
-  }
+  await createUser.execute({
+    name,
+    email,
+    password,
+  });
+  return response.json({ name, email });
 });
 
 usersRouter.patch(
@@ -32,17 +26,14 @@ usersRouter.patch(
   ensureAuthenticated,
   upload.single('avatar'),
   async (request, response) => {
-    try {
-      const uploadAvatar = new UpdateUserAvatarService();
-      const user = await uploadAvatar.execute({
-        userId: request.user.id,
-        avatarFilename: request.file?.filename,
-      });
+    const uploadAvatar = new UpdateUserAvatarService();
 
-      return response.json(user);
-    } catch ({ message }) {
-      return response.status(400).json({ error: message });
-    }
+    const user = await uploadAvatar.execute({
+      userId: request.user.id,
+      avatarFilename: request.file?.filename,
+    });
+
+    return response.json(user);
   },
 );
 export default usersRouter;
