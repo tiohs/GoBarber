@@ -20,6 +20,7 @@ app.use((err: Error, _request: Request, response: Response, _: NextFunction) => 
     });
   }
 
+  console.error(err);
   return response.status(500).json({
     status: 500,
     message: 'Interno Error ',
