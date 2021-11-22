@@ -14,3 +14,11 @@ yarn add @types/react-router-dom @types/styled-components -D
 Ver a pacote se está instalado no readme styled components
 
 yarn add polished  
+
+
+"eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  }
