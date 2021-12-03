@@ -1,14 +1,13 @@
-/* eslint-disable import/no-unresolved */
-/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-// eslint-disable-next-line import/extensions
+import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BrowserRouter>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </BrowserRouter>,
   document.getElementById('root'),
 );
