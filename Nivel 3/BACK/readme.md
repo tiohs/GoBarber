@@ -62,3 +62,16 @@ Além disso, imagine que em outras ações como consumir produtos do Hotel seja 
 # Rota
 Tem como responsablidade receber requisão , chamar uma função para retorna os dados
 da reposta da rota
+
+# Banco de dados
+
+Estrátegias de abstração existe 3 principais que são :
+  - **Drives** - Lidar direito com banco dedos pg - está é a forma mais raiz
+  - **Query build**  - construir as query com js depois converte para sql
+  - **ORM** - Object Relational Mapping
+
+# Docker
+
+* Como funciona ?
+  - Criação de ambiente isolados (container)
+  -
