@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { shade } from 'polished';
 export const Title = styled.h1`
   font-size: 40px;
   color: #3a3a3a;
@@ -29,9 +29,9 @@ export const Form = styled.form`
     border: 0;
     color: #fff;
     font-weight: bold;
-   
+    transition: background-color 0.2s;
     &:hover {
-      background: #04d361;
+      background: ${ shade(0.2, '#04d361')};
     }
   }
 `;

@@ -18,7 +18,6 @@ const Dashboard: React.FC = () => {
             <strong>unituenda/pilha</strong>
             <p>Melhor software de procura de ajuda !</p>
           </div>
-
         </a>
       </Repositories>
     </>
