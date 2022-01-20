@@ -89,3 +89,24 @@ Token JWT ele está divido em 3 camadas que são :
   - Headers (Tipos de token, algoritmo)
   - Payload (Dados adicionais) podemos guarda dados do usuário
   - Assinatura
+
+### Nota
+Quando não existe uma typagem numa lib agene tem como sub-escrever tipos com rack
+
+Mudar os typos na pasta **@types** rescrever a typagem criando um arquivo com o nome da pasta e ponto d :
+Ex : express.d.ts
+
+Substituição de tipos
+
+Esse erro estava no Rest
+```js
+declare namespace Express {
+  export interface Request {
+    user: {
+      id: string;
+    }
+  }
+}
+```
+
+
