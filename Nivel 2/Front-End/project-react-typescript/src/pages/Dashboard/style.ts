@@ -81,5 +81,6 @@ export const Repositories = styled.div`
   }
   svg {
       margin-left: auto;
+      color: #a8a8a3;
     }
 `;
