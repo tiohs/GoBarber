@@ -84,3 +84,8 @@ Estrátegias de abstração existe 3 principais que são :
 # JWT
 
 É uma metologia de fazer autenticação de aplicação em Rest API em JSON
+
+Token JWT ele está divido em 3 camadas que são :
+  - Headers (Tipos de token, algoritmo)
+  - Payload (Dados adicionais) podemos guarda dados do usuário
+  - Assinatura
