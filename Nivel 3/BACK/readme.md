@@ -75,3 +75,12 @@ Estrátegias de abstração existe 3 principais que são :
 * Como funciona ?
   - Criação de ambiente isolados (container)
   -
+
+
+### TYPEORM
+- Meter as configurações do banco de dados no arquivo ***ormconfig.json***
+
+
+# JWT
+
+É uma metologia de fazer autenticação de aplicação em Rest API em JSON
