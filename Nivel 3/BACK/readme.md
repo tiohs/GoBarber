@@ -1,6 +1,6 @@
 # Services e Solid
 
-Resumão ->
+Resumão Back ->
 
 - O **repository** faz a ponte entre a aplicação e a sua forma de persistência de dados, realizando apenas as operações relacionadas aos dados da aplicação, tais como buscar, deletar, editar, remover, criar.
 
