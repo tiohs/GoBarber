@@ -50,6 +50,15 @@ export const Repositories = styled.div`
 
     display: flex;
     align-items: center;
+    transition: transform 0.2s;
+
+    & + a {
+      margin: 16px;
+    }
+
+    &:hover {
+      transform: translateX(45px) ;
+    }
   }
 
   img {
@@ -68,5 +77,9 @@ export const Repositories = styled.div`
       color: #a8a8a3;
       margin-top: 4px;
     }
+   
   }
+  svg {
+      margin-left: auto;
+    }
 `;

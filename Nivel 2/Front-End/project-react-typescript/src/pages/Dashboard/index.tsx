@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { FiChevronRight } from 'react-icons/fi';
 import { Title, Form, Repositories } from './style';
 import avatar from "../../assets/img.jpg";
 
@@ -18,6 +18,7 @@ const Dashboard: React.FC = () => {
             <strong>unituenda/pilha</strong>
             <p>Melhor software de procura de ajuda !</p>
           </div>
+          <FiChevronRight size={20}/>
         </a>
       </Repositories>
     </>
