@@ -22,6 +22,7 @@ const Dashboard: React.FC = () => {
     const response = await api.get<Repository>(`repos/${newRepo}`);
     const repository = response.data;
     setRepositories([...repositories, repository]);
+    setNewRepo('');
   }
   return (
     <>
@@ -36,11 +37,14 @@ const Dashboard: React.FC = () => {
       </Form>
       <Repositories>
        { repositories.map(repository => (
-        <a href="test">
-          <img src={avatar} alt="Hamilton Silva"  />
+        <a key={repository.full_name} href="test">
+          <img 
+            src={repository.owner.avatar_url} 
+            alt={repository.full_name}  
+          />
           <div>
-            <strong>unituenda/pilha</strong>
-            <p>Melhor software de procura de ajuda !</p>
+            <strong>{repository.full_name}</strong>
+            <p>{repository.description}</p>
           </div>
           <FiChevronRight size={20}/>
         </a>
