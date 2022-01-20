@@ -1,7 +1,6 @@
 import React, { useState, FormEvent, useEffect } from 'react';
 import { FiChevronRight } from 'react-icons/fi';
 import { Title, Form, Repositories, Error } from './style';
-import avatar from "../../assets/img.jpg";
 import api from '../../services/api';
 
 interface Repository {
