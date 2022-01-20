@@ -20,7 +20,32 @@ const Dashboard: React.FC = () => {
           </div>
           <FiChevronRight size={20}/>
         </a>
+        <a href="test">
+          <img src={avatar} alt="Hamilton Silva"  />
+          <div>
+            <strong>unituenda/pilha</strong>
+            <p>Melhor software de procura de ajuda !</p>
+          </div>
+          <FiChevronRight size={20}/>
+        </a>
+        <a href="test">
+          <img src={avatar} alt="Hamilton Silva"  />
+          <div>
+            <strong>unituenda/pilha</strong>
+            <p>Melhor software de procura de ajuda !</p>
+          </div>
+          <FiChevronRight size={20}/>
+        </a>
+        <a href="test">
+          <img src={avatar} alt="Hamilton Silva"  />
+          <div>
+            <strong>unituenda/pilha</strong>
+            <p>Melhor software de procura de ajuda !</p>
+          </div>
+          <FiChevronRight size={20}/>
+        </a>
       </Repositories>
+      
     </>
   );
 }
