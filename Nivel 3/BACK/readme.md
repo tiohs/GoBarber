@@ -109,4 +109,8 @@ declare namespace Express {
 }
 ```
 
+### Exception Handling
 
+***Lidando com erros*** aqui lidamos com todo e qualquer tipo de erro da aplicação.
+
+Ex : O que fizemos para o fluxo de rotas que é AppErros
