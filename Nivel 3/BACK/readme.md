@@ -114,3 +114,11 @@ declare namespace Express {
 ***Lidando com erros*** aqui lidamos com todo e qualquer tipo de erro da aplicação.
 
 Ex : O que fizemos para o fluxo de rotas que é AppErros
+
+**Middlewres**
+
+Para tratamento de erro ele tem 4 parametros :
+  - Error
+  - Request
+  - Response
+  - NexTFuntion
