@@ -40,9 +40,6 @@ const Dashboard: React.FC = () => {
     }catch(err) {
       setInputError('Erro ao encontrar os dados do formulário ');
     }
-    
-    
-    console.log(newRepo);
   }
   return (
     <>
@@ -72,7 +69,6 @@ const Dashboard: React.FC = () => {
         </a>
        ))}
       </Repositories>
-      
     </>
   );
 }
