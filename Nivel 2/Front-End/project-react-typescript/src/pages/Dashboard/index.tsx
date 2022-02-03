@@ -35,12 +35,14 @@ const Dashboard: React.FC = () => {
       const response = await api.get<Repository>(`repos/${newRepo}`);
       const repository = response.data;
       setRepositories([...repositories, repository]);
-      setNewRepo('');
+      setNewRepo(' ');
       setInputError('');
     }catch(err) {
       setInputError('Erro ao encontrar os dados do formulário ');
     }
     
+    
+    console.log(newRepo);
   }
   return (
     <>
