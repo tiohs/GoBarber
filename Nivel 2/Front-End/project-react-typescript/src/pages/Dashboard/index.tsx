@@ -49,6 +49,7 @@ const Dashboard: React.FC = () => {
       <Title>Explore repositórios no GitHub</Title>
       <Form hasError={!!inputError} onSubmit={handleAddRepository}>
         <input 
+          value={newRepo}
           type="text" 
           onChange={e => setNewRepo(e.target.value)}
           placeholder='Deigite o nome do repositório '
