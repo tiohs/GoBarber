@@ -59,7 +59,7 @@ const Dashboard: React.FC = () => {
        { repositories.map(repository => (
         <Link 
           key={repository.full_name} 
-          to={`repository/${repository.full_name}`}
+          to={`/repository/${repository.full_name.replace('/', '_')}`}
         >
           <img 
             src={repository.owner.avatar_url} 
