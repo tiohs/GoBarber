@@ -1,3 +1,2 @@
-## Styled Component 
+## Project GITHUB
 
-Ele recebe as props do componente 
