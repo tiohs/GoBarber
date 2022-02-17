@@ -27,7 +27,7 @@ const SignUp: React.FC = () => {
           />
           <Input
             icon={FiMail}
-            type="text"
+            type="email"
             name="email"
             id="email"
             placeholder="Digite o seu email "
