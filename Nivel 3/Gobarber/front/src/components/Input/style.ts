@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.label`
   color: #666368;
   background: #232129;
   border-radius: 10px;
@@ -9,7 +9,7 @@ export const Container = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  & + div {
+  & + label {
     margin-top: 8px;
   }
   input {
