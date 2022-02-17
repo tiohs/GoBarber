@@ -25,6 +25,9 @@ const Input: React.FC<InputProps> = ({ name, icon: Icon, ...rest }) => {
     setIsFocused(false);
     setIsFilled(!!inputRef.current?.value);
   }, []);
+  const handleOnFocus = useCallback(() => {
+    setIsFocused(true);
+  }, []);
 
   useEffect(() => {
     registerField({
@@ -40,7 +43,7 @@ const Input: React.FC<InputProps> = ({ name, icon: Icon, ...rest }) => {
         defaultValue={defaultValue}
         ref={inputRef}
         {...rest}
-        onFocus={() => setIsFocused(true)}
+        onFocus={handleOnFocus}
         onBlur={handleInputBlur}
       />
     </Container>

@@ -27,7 +27,6 @@ export const Container = styled.label<ContainerProps>`
     props.isFilled &&
     css`
       color: #ff9000;
-      border: 2px solid #ff9000;
     `};
   input {
     color: #f4ede8;
