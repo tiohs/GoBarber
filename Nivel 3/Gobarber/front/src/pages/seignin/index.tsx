@@ -3,6 +3,8 @@ import React from 'react';
 import { FiLogIn } from 'react-icons/fi';
 import logoImg from '../../assets/logo.svg';
 
+import Input from '../../components/Input';
+
 import { Container, Content, Background } from './style';
 
 const SignIn: React.FC = () => (
@@ -11,13 +13,13 @@ const SignIn: React.FC = () => (
       <img src={logoImg} alt="Logo da goBarber" />
       <form action="post">
         <h1>Faça seu login</h1>
-        <input
+        <Input
           type="text"
           name="email"
           id="email"
           placeholder="Digite o email "
         />
-        <input
+        <Input
           type="password"
           name="password"
           id="password"
