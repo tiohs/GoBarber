@@ -2,7 +2,7 @@ import React, { useCallback, useRef } from 'react';
 import { Form } from '@unform/web';
 import { FiArrowLeft, FiMail, FiUser, FiLock } from 'react-icons/fi';
 import * as Yup from 'yup';
-
+import { FormHandles } from '@unform/core';
 import logoImg from '../../assets/logo.svg';
 
 import Input from '../../components/Input';
@@ -11,7 +11,7 @@ import Button from '../../components/Button';
 import { Container, Content, Background } from './style';
 
 const SignUp: React.FC = () => {
-  const formRef = useRef(null);
+  const formRef = useRef<FormHandles>(null);
 
   const handleSubmit = useCallback(async (data: object) => {
     try {
@@ -26,6 +26,9 @@ const SignUp: React.FC = () => {
         abortEarly: false,
       });
     } catch (error) {
+      formRef.current?.setErrors({
+        name: 'Nome obrigatório',
+      });
       console.log(error);
     }
   }, []);
