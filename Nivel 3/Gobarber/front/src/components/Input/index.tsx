@@ -49,7 +49,7 @@ const Input: React.FC<InputProps> = ({ name, icon: Icon, ...rest }) => {
         onBlur={handleInputBlur}
       />
       {error && (
-        <Error>
+        <Error title={error}>
           <FiAlertCircle size={16} color="#c53030" />
         </Error>
       )}
