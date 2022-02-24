@@ -9,7 +9,7 @@ import logoImg from '../../assets/logo.svg';
 
 import Input from '../../components/Input';
 import Button from '../../components/Button';
-import getValidationErrors from '../../utils/getValidationErros';
+import getValidationErrors from '../../utils/getValidationErrors';
 import { Container, Content, Background } from './style';
 
 const SignUp: React.FC = () => {
@@ -23,7 +23,7 @@ const SignUp: React.FC = () => {
         email: Yup.string()
           .required('E-mail obrigatório')
           .email('Digite um email válido'),
-        password: Yup.string().min(6, 'No mínimo 6 dígitod'),
+        password: Yup.string().min(6, 'No mínimo 6 dígito'),
       });
       await schema.validate(data, {
         abortEarly: false,
@@ -31,7 +31,6 @@ const SignUp: React.FC = () => {
     } catch (error) {
       const err = error as ValidationError;
       formRef.current?.setErrors(getValidationErrors(err));
-      console.log(error);
     }
   }, []);
   return (
