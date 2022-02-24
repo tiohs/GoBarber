@@ -47,3 +47,12 @@ export const Container = styled.label<ContainerProps>`
     margin-right: 12px;
   }
 `;
+
+export const Error = styled.div`
+  height: 20px;
+  margin-left: 16px;
+
+  svg {
+    margin: 0;
+  }
+`;
