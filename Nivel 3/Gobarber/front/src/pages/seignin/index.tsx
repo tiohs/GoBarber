@@ -6,7 +6,7 @@ import { ValidationError } from 'yup';
 import { FormHandles } from '@unform/core';
 import * as Yup from 'yup';
 
-import AuthContext from '../../hooks/AuthContext';
+import { AuthContext } from '../../hooks/AuthContext';
 import getValidationErrors from '../../utils/getValidationErrors';
 import logoImg from '../../assets/logo.svg';
 import Input from '../../components/Input';
@@ -14,27 +14,39 @@ import Button from '../../components/Button';
 
 import { Container, Content, Background } from './style';
 
+interface SignInFormData {
+  email: string;
+  password: string;
+}
+
 const SignIn: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
-  const auth = useContext(AuthContext);
-  console.log(auth);
-  const handleSubmit = useCallback(async (data: object) => {
-    try {
-      formRef.current?.setErrors({});
-      const schema = Yup.object().shape({
-        email: Yup.string()
-          .required('E-mail obrigatório')
-          .email('Digite um email válido'),
-        password: Yup.string().required('Password obrigatório'),
-      });
-      await schema.validate(data, {
-        abortEarly: false,
-      });
-    } catch (error) {
-      const err = error as ValidationError;
-      formRef.current?.setErrors(getValidationErrors(err));
-    }
-  }, []);
+  const { signIn } = useContext(AuthContext);
+
+  const handleSubmit = useCallback(
+    async (data: SignInFormData) => {
+      try {
+        formRef.current?.setErrors({});
+        const schema = Yup.object().shape({
+          email: Yup.string()
+            .required('E-mail obrigatório')
+            .email('Digite um email válido'),
+          password: Yup.string().required('Password obrigatório'),
+        });
+        await schema.validate(data, {
+          abortEarly: false,
+        });
+        signIn({
+          email: data.email,
+          password: data.password,
+        });
+      } catch (error) {
+        const err = error as ValidationError;
+        formRef.current?.setErrors(getValidationErrors(err));
+      }
+    },
+    [signIn],
+  );
   return (
     <Container>
       <Content>
