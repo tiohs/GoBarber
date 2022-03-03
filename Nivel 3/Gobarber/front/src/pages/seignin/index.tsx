@@ -6,7 +6,7 @@ import { ValidationError } from 'yup';
 import { FormHandles } from '@unform/core';
 import * as Yup from 'yup';
 
-import { useAuth } from '../../hooks/AuthContext';
+import { useAuth } from '../../hooks/auth';
 import getValidationErrors from '../../utils/getValidationErrors';
 import logoImg from '../../assets/logo.svg';
 import Input from '../../components/Input';
