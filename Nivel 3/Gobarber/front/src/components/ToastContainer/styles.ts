@@ -1,5 +1,24 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
+interface ToastProps {
+  type?: 'info' | 'success' | 'error';
+  hasDescription: boolean;
+}
+
+const toastTypeVariations = {
+  info: css`
+    background: #ebf8ff;
+    color: #3172b7;
+  `,
+  success: css`
+    background: #e6fffa;
+    color: #2e656a;
+  `,
+  error: css`
+    background: #fddede;
+    color: #c53030;
+  `,
+};
 export const Container = styled.div`
   position: absolute;
   right: 0;
@@ -7,15 +26,17 @@ export const Container = styled.div`
   padding: 30px;
   overflow: hidden;
 `;
-export const Toast = styled.div`
+export const Toast = styled.div<ToastProps>`
   width: 360px;
   position: relative;
   padding: 16px 30px 16px 16px;
   border-radius: 10px;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
   display: flex;
-  background: #ebf8ff;
-  color: #3172b7;
+  & + div {
+    margin-top: 8px;
+  }
+  ${(props) => toastTypeVariations[props.type || 'info']}
 
   > svg {
     margin: 4px 12px 0 0;
@@ -40,4 +61,12 @@ export const Toast = styled.div`
     background-color: transparent;
     color: inherit;
   }
+  ${(props) =>
+    !props.hasDescription &&
+    css`
+      align-items: center;
+      svg {
+        margin-top: 0;
+      }
+    `}
 `;
