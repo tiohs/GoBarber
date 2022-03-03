@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useContext } from 'react';
+import React, { useCallback, useRef } from 'react';
 import { FiLogIn, FiMail, FiLock } from 'react-icons/fi';
 import { Form } from '@unform/web';
 import { ValidationError } from 'yup';
