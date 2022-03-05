@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Toast from './Toast';
 import { Container } from './styles';
 import { ToastMessage } from '../../hooks/toast';
