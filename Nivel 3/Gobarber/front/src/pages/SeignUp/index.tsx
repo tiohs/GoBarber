@@ -11,7 +11,7 @@ import logoImg from '../../assets/logo.svg';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import getValidationErrors from '../../utils/getValidationErrors';
-import { Container, Content, Background } from './style';
+import { Container, Content, Background, AnimationContainer } from './style';
 
 const SignUp: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
@@ -38,36 +38,38 @@ const SignUp: React.FC = () => {
     <Container>
       <Background />
       <Content>
-        <img src={logoImg} alt="Logo da goBarber" />
-        <Form ref={formRef} onSubmit={handleSubmit}>
-          <h1>Faça seu cadastro</h1>
-          <Input
-            icon={FiUser}
-            type="text"
-            name="name"
-            id="name"
-            placeholder="Digite o seu nome "
-          />
-          <Input
-            icon={FiMail}
-            type="email"
-            name="email"
-            id="email"
-            placeholder="Digite o seu email "
-          />
-          <Input
-            icon={FiLock}
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Digite a password"
-          />
-          <Button>Enviar</Button>
-        </Form>
-        <Link to="/">
-          <FiArrowLeft />
-          Voltar para logon
-        </Link>
+        <AnimationContainer>
+          <img src={logoImg} alt="Logo da goBarber" />
+          <Form ref={formRef} onSubmit={handleSubmit}>
+            <h1>Faça seu cadastro</h1>
+            <Input
+              icon={FiUser}
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Digite o seu nome "
+            />
+            <Input
+              icon={FiMail}
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Digite o seu email "
+            />
+            <Input
+              icon={FiLock}
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Digite a password"
+            />
+            <Button>Enviar</Button>
+          </Form>
+          <Link to="/">
+            <FiArrowLeft />
+            Voltar para logon
+          </Link>
+        </AnimationContainer>
       </Content>
     </Container>
   );
