@@ -122,3 +122,6 @@ Para tratamento de erro ele tem 4 parametros :
   - Request
   - Response
   - NexTFuntion
+
+# Arquitectura de Software
+
