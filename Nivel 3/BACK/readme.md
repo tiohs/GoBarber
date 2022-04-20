@@ -142,12 +142,14 @@ Nesse contexto são sepados por Setores, não se deve cometer o erro de se basea
 
 **CAMADA DE INFRA**
 
-Então são as ferramentas que a gente escolhe para se relacionar com a camada de dominio.
+São as ferramentas que a gente escolhe para se relacionar com a camada de dominio.
 
 Fica a parte do banco de dados, envio de email, armazenamento de arquivo etc.
 
 Toda e qualquer area da aplicação onde não tem regra de negocio.
 
+Nota : Muito cuidado em ensolar o `Service` apesar dele está estar na camada de parecer fazer parte da camada infra ele é a parte da aplicação onde é guardado a regrade negocio então deve ficar no Dominio
 
+### **Liskov**
 
-
+- 
