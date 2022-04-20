@@ -152,4 +152,7 @@ Nota : Muito cuidado em ensolar o `Service` apesar dele está estar na camada de
 
 ### **Liskov**
 
-- 
+- Camadas que são integrações com banco de dados ou outras libs elas devem ser possivel substituir difinindo regras.
+
+Nota : Toda vez que um arquivo começar com I ele é uma interface
+
