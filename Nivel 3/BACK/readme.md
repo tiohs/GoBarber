@@ -125,3 +125,13 @@ Para tratamento de erro ele tem 4 parametros :
 
 # Arquitectura de Software
 
+Domínio : Qual a área de conhecimento daquele módulo/arquivo
+Sendo assim os nossos arquivos vão ser devidido em modulos
+
+
+ **DDD**
+
+- Domain Driven Design (metologia que vêm com modelos para trabalhar no **DDD**)
+DDD só se aplica no **Back-End**
+
+Separando por `Modulos` com base no `Dominio`
