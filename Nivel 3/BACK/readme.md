@@ -156,3 +156,5 @@ Nota : Muito cuidado em ensolar o `Service` apesar dele está estar na camada de
 
 Nota : Toda vez que um arquivo começar com I ele é uma interface
 
+### **Liskov**
+
