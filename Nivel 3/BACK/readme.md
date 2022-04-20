@@ -137,3 +137,17 @@ DDD só se aplica no **Back-End**
 Separando por `Modulos` com base no `Dominio`
 
 Nesse contexto são sepados por Setores, não se deve cometer o erro de se basear no models da aplicação se bem que eles são um pouco semelhantes.
+
+`SHARED` pasta onde é guardado tudo que é compartilhado exemplo tratamento de erros, config etc.
+
+**CAMADA DE INFRA**
+
+Então são as ferramentas que a gente escolhe para se relacionar com a camada de dominio.
+
+Fica a parte do banco de dados, envio de email, armazenamento de arquivo etc.
+
+Toda e qualquer area da aplicação onde não tem regra de negocio.
+
+
+
+
