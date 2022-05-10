@@ -18,6 +18,8 @@
     "import/no-unresolved": "off",
     "class-methods-use-this": "off",
     "camelcase": "off",
+    "no-useless-constructor": "off",
+    "no-empty-function": "off",
     "@typescript-eslint/no-unused-vars" : ["error",
     {
       "argsIgnorePattern": "_"
