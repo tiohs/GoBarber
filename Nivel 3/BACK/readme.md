@@ -158,3 +158,4 @@ Nota : Toda vez que um arquivo começar com I ele é uma interface
 
 ### **Liskov**
 
+- Vamos usar injection de depedencia para não chamar o proprio construtor no service
