@@ -6,6 +6,7 @@ import cors from 'cors';
 import configAvatar from '@config/uploads';
 import routes from '@shared/infra/http/routes';
 import '@shared/infra/typeorm';
+import '@shared/container';
 
 import AppError from '@shared/error/AppError';
 
