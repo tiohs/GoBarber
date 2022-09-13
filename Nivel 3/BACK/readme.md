@@ -159,3 +159,26 @@ Nota : Toda vez que um arquivo começar com I ele é uma interface
 ### **Liskov**
 
 - Vamos usar injection de depedencia para não chamar o proprio construtor no service
+
+# Teste automatizados
+
+Que a nossa aplicação continue funcionando independente do número de novas funcionalidade e do número de devs no time.
+
+1. Teste unitário
+
+Testam funcionalidades especificas da nossa aplicação (precisas ser funções puras).
+Jamais : chamada à uma API, efeito colateral
+
+2. Teste de integração
+
+Testam uma funcionalidade completa, passando por várias camadas da aplicação
+Route -> controller -> serviço -Z Repositório -> ...
+
+3. Teste EZE
+
+Testes que simulam a ação do usuario dentro da aplicação
+
+# TDD (Test Driven Development)
+
+- Quando ele se cadastrar na aplicação, ele deve receber um email de boas-vindas;
+
