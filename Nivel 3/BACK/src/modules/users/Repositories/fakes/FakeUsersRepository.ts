@@ -23,10 +23,12 @@ class UsersRepository implements IUsersRepository {
     return userData;
   }
 
-  public async create(userData: ICreateUserDTD): Promise<Users> {
+  public async create({ name, email, password }: ICreateUserDTD): Promise<Users> {
     const user = new Users();
 
-    Object.assign(user, { id: Math.random().toString().slice(2), userData });
+    Object.assign(user, {
+      id: Math.random().toString().slice(2), name, email, password,
+    });
 
     this.users.push(user);
     return user;
