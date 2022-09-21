@@ -17,7 +17,7 @@ describe('CreateAppointment', () => {
   it('should not be able to create two appointment on the same time', async () => {
     const fakeAppointmentsRepository = new FakeAppointmentsRepository();
     const createAppointmentService = new CreateAppointmentService(fakeAppointmentsRepository);
-    const appointmentDate = new Date();
+    const appointmentDate = new Date(2020, 4, 10, 11);
 
     await createAppointmentService.execute({
       date: appointmentDate,
