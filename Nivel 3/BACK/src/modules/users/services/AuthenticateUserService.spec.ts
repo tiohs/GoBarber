@@ -8,7 +8,8 @@ describe('AuthenticateUser', () => {
     const fakeUsersRepository = new FakeUsersRepository();
     const fakeHashProvider = new FakeHashProvider();
 
-    const authenticateUserService = new AuthenticateUserService(fakeUsersRepository);
+    // eslint-disable-next-line max-len
+    const authenticateUserService = new AuthenticateUserService(fakeUsersRepository, fakeHashProvider);
     const createUserService = new CreateUserService(fakeUsersRepository, fakeHashProvider);
 
     await createUserService.execute({
