@@ -182,3 +182,34 @@ Testes que simulam a ação do usuario dentro da aplicação
 
 - Quando ele se cadastrar na aplicação, ele deve receber um email de boas-vindas;
 
+# Mapeamento as Features do Sistema
+
+``` Funcionalidade Macro - são coisas que por dentro são mais definidas mais conseguimos ver por tela ```
+# Recuperação de senha
+
+**RF**
+
+```Requisitos Funcionas - são as funcionalidades que o usúario ```
+
+- O usuário deve poder recuperar sua senha informando o seu e-amil;
+- O usuário deve receber um e-mail com instruçães de recuperação de senha
+- O usuário deve poder resetar sua senha
+
+**RNF**
+
+```Não são ligadas ligada direitamente com a regra de negocio : lib, banco de dados que usaremos```
+
+- Utilizar Mailtrap para testar envios em ambiente de dev;
+- Utilizar amazon SES para envios em produção;
+- O envio de e-mils deve acontecer em segundo plano (background job);
+
+**RN**
+
+- O link enviado por email para resetar senha, deve espirar em 2h;
+- O usuário precisa confirmar a nova senha ao resetar sua senha;
+
+# Actualização do perfil
+# Painel do prestador
+
+# Agendamento de serviços
+
