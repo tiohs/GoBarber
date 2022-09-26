@@ -209,6 +209,12 @@ Testes que simulam a ação do usuario dentro da aplicação
 - O usuário precisa confirmar a nova senha ao resetar sua senha;
 
 # Actualização do perfil
+**RF**
+
+**RNF**
+
+**RN**
+
 # Painel do prestador
 
 # Agendamento de serviços
