@@ -162,7 +162,7 @@ Nota : Toda vez que um arquivo começar com I ele é uma interface
 
 # Teste automatizados
 
-Que a nossa aplicação continue funcionando independente do número de novas funcionalidade e do número de devs no time.
+Responsavel em manter a nossa aplicação continue funcionando independente do número de novas funcionalidade e do número de devs no time.
 
 1. Teste unitário
 
@@ -210,11 +210,43 @@ Testes que simulam a ação do usuario dentro da aplicação
 
 # Actualização do perfil
 **RF**
-
-**RNF**
+- O usuário deve poder actualizar seu nome, email e senha;
 
 **RN**
 
+- O usuário não pode alterar seu email para um email já utilizado
+- Para atualiza sua senha, o usuário deve informar a senha antiga;
+- Para atualiza sua senha, o usuário precisa confirmar a nova senha
+
 # Painel do prestador
 
+**RF**
+
+- O usuário deve poder listar todos seus agendamentos de um dia espicifico
+- O prestador deve receber noticação sempre que houver um novo agendamento;
+- O prestador deve poder visualizar as notificações não lidas;
+
+**RNF**
+
+- Os agendamentos do prestador no dia devem ser armazenados em cache;
+- As notificões do prestador devem ser armazenadas no MongoDB;
+- As notificações do prestador devem ser enviadas em tempo-real utilizando Socket.io;
+
+**RN**
+- Notificação deve ter um status de lida ou não lida para que o prestador possa controlar
 # Agendamento de serviços
+
+**RF**
+- O usuário deve poder lista todos prestadores de serviço cadastrado;
+- O usuário deve poder lista os dias de um mês com pelo menos um horário disponivel de um prestador;
+- O usuário deve poder listar horários disponivel em um dia específico de um prestador;
+- O usuário deve porder realizar um novo agendamento com um prestador;
+
+**RNF**
+- Listagem de prestadores deve ser armazenada em cache;
+**RN**
+- Cada agendamento deve durar 1h exatamente;
+- Os agendamento devem estar disponiveis entre as 8 horas ás 16;
+- O usuario não pode agendar em um horário já ocupado;
+- O usuário não pode agendar em um horario que já passou;
+- O usuário não pode agendar serviços consigo mesmo;
