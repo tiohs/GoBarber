@@ -21,9 +21,9 @@ Separar da rota o que é **regra de negócio** e o que é **transformação de d
 - Dependency Inversion Principle
   - Receber repositório por parâmetro no constructor
 
-- Single Responsability Principle -> Cada arquivo possui somente uma responsabilidade
-- Open-closed Principle
-- Liskov substitution Principle
+- Single Responsibility Principle -> Cada arquivo possui somente uma responsabilidade
+- Open closed Principle
+- Lis kov substitution Principle
 - Interface segregation Principle
 - Dependency Inversion Principle
 
