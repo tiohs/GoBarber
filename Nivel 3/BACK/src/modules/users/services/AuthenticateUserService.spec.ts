@@ -34,7 +34,7 @@ describe('AuthenticateUser', () => {
     // eslint-disable-next-line max-len
     const authenticateUserService = new AuthenticateUserService(fakeUsersRepository, fakeHashProvider);
 
-    expect(authenticateUserService.execute({
+    await expect(authenticateUserService.execute({
       email: 'johondoe@exemple.com',
       password: '123456',
     })).rejects.toBeInstanceOf(AppError);
@@ -53,7 +53,7 @@ describe('AuthenticateUser', () => {
       email: 'johondoe@exemple.com',
       password: '123456',
     });
-    expect(authenticateUserService.execute({
+    await expect(authenticateUserService.execute({
       email: 'johondoe@exemple.com',
       password: '123r456',
     })).rejects.toBeInstanceOf(AppError);

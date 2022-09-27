@@ -32,7 +32,7 @@ describe('UpdateUserAvatar', () => {
     // eslint-disable-next-line max-len
     const updateUserAvatarService = new UpdateUserAvatarService(fakeUsersRepository, fakeStorageProvider);
 
-    expect(updateUserAvatarService.execute({
+    await expect(updateUserAvatarService.execute({
       avatarFilename: 'avatar.jpg',
       userId: 'not-exist',
     })).rejects.toBeInstanceOf(Error);
@@ -76,7 +76,7 @@ describe('UpdateUserAvatar', () => {
       password: '123456',
     });
 
-    expect(updateUserAvatarService.execute({
+    await expect(updateUserAvatarService.execute({
       avatarFilename: undefined,
       userId: user.id,
     })).rejects.toBeInstanceOf(AppError);

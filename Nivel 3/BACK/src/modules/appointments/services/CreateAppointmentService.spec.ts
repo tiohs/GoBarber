@@ -25,7 +25,7 @@ describe('CreateAppointment', () => {
     });
 
     // rejects - should be on result error
-    expect(createAppointmentService.execute({
+    await expect(createAppointmentService.execute({
       date: appointmentDate,
       provider_id: '1',
     })).rejects.toBeInstanceOf(AppError); // Espera que o erro seja uma instacia de AppError
