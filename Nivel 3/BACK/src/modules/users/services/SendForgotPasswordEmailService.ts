@@ -2,6 +2,7 @@ import { injectable, inject } from 'tsyringe';
 import IMailProvider from '@shared/container/providers/MailProvider/models/IMailProvider';
 import AppError from '@shared/error/AppError';
 import IUsersRepository from '../Repositories/IUsersRepository';
+import IUserTokensRepository from '../Repositories/IUserTokensRepository';
 
 interface IRequest {
   email: string,
@@ -14,14 +15,18 @@ class CreateUserService {
     private usersRepository: IUsersRepository,
     @inject('MailProvider')
     private mailProvider: IMailProvider,
+    @inject('UserTokensRepository')
+    private userTokensRepository: IUserTokensRepository,
   ) {}
 
   public async execute({ email }: IRequest): Promise<void> {
-    const checkUserExists = await this.usersRepository.findByEmail(email);
+    const user = await this.usersRepository.findByEmail(email);
 
-    if (!checkUserExists) {
+    if (!user) {
       throw new AppError('Users does not exist ');
     }
+
+    this.userTokensRepository.generate(user.id);
     this.mailProvider.sendMail(email, 'Olá mundo ');
   }
 }
