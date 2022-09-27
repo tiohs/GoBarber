@@ -32,7 +32,7 @@ describe('SendForgetPasswordEmail', () => {
     // eslint-disable-next-line max-len
     const sendForgetPasswordEmailService = new SendForgetPasswordEmailService(fakeUsersRepository, fakeMailProvider);
 
-    await await expect(sendForgetPasswordEmailService.execute({
+    await expect(sendForgetPasswordEmailService.execute({
       email: 'johondoe@exemple.com',
     })).rejects.toBeInstanceOf(AppError);
   });
