@@ -13,6 +13,7 @@ class FakeUserTokensRepository implements IUserTokensRepository {
       user_id,
     });
 
+    this.usersToken.push(userToken);
     return userToken;
   }
 

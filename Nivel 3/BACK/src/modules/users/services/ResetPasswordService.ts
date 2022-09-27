@@ -11,7 +11,7 @@ interface IRequest {
 }
 
 @injectable()
-class CreateUserService {
+class ResetPasswordService {
   constructor(
     @inject('UsersRepository')
     private usersRepository: IUsersRepository,
@@ -21,6 +21,7 @@ class CreateUserService {
 
   public async execute({ token, password }: IRequest): Promise<void> {
     const userToken = await this.userTokensRepository.findByToken(token);
+
     if (!userToken) {
       throw new AppError('User token not exist');
     }
@@ -35,4 +36,4 @@ class CreateUserService {
   }
 }
 
-export default CreateUserService;
+export default ResetPasswordService;
