@@ -1,3 +1,4 @@
+import AppError from '@shared/error/AppError';
 import { injectable, inject } from 'tsyringe';
 
 // import AppError from '@shared/error/AppError';
@@ -19,7 +20,18 @@ class CreateUserService {
   ) {}
 
   public async execute({ token, password }: IRequest): Promise<void> {
+    const userToken = await this.userTokensRepository.findByToken(token);
+    if (!userToken) {
+      throw new AppError('User token not exist');
+    }
+    const user = await this.usersRepository.findById(userToken.user_id);
+    if (!user) {
+      throw new AppError('User does not exist');
+    }
 
+    user.password = password;
+
+    await this.usersRepository.save(user);
   }
 }
 
