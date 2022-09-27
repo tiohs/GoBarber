@@ -11,15 +11,17 @@ describe('CreateUsers', () => {
     // eslint-disable-next-line max-len
     const sendForgetPasswordEmailService = new SendForgetPasswordEmailService(fakeUsersRepository, fakeMailProvider);
 
+    const sendMail = jest.spyOn(fakeMailProvider, 'sendMail');
+
     await fakeUsersRepository.create({
       email: 'johondoe@exemple.com',
       name: 'John Doe',
       password: '123456',
     });
 
-    const user = await sendForgetPasswordEmailService.execute({
+    await sendForgetPasswordEmailService.execute({
       email: 'johondoe@exemple.com',
     });
-    expect(user).toHaveProperty('id');
+    expect(sendMail).toHaveBeenCalled();
   });
 });

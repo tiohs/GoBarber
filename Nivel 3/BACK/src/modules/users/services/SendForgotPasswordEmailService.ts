@@ -16,7 +16,7 @@ class CreateUserService {
   ) {}
 
   public async execute({ email }: IRequest): Promise<void> {
-    console.log(email);
+    this.mailProvider.sendMail(email, 'Olá mundo ');
   }
 }
 
