@@ -12,8 +12,10 @@ describe('ResetPassword', () => {
   beforeEach(() => {
     fakeUsersRepository = new FakeUsersRepository();
     fakeUserTokenRepository = new FakeUserTokenRepository();
-    // eslint-disable-next-line max-len
-    resetPasswordService = new ResetPasswordService(fakeUsersRepository, fakeUserTokenRepository);
+    resetPasswordService = new ResetPasswordService(
+      fakeUsersRepository,
+      fakeUserTokenRepository,
+    );
   });
   it('Should be able to reset the password', async () => {
     const user = await fakeUsersRepository.create({
@@ -30,11 +32,17 @@ describe('ResetPassword', () => {
     expect(updatedUser?.password).toBe('123123');
   });
   it('Should not be able to reset the password if TokenUser not exist', async () => {
-    await expect(resetPasswordService.execute({ token: '1687139', password: '123123' })).rejects.toBeInstanceOf(AppError);
+    await expect(resetPasswordService.execute({
+      token: '1687139',
+      password: '123123',
+    })).rejects.toBeInstanceOf(AppError);
   });
   it('Should not be able to reset the password if user not exist', async () => {
     const { token } = await fakeUserTokenRepository.generate('12396129e8jds72n');
 
-    await expect(resetPasswordService.execute({ token, password: '123123' })).rejects.toBeInstanceOf(AppError);
+    await expect(resetPasswordService.execute({
+      token,
+      password: '123123',
+    })).rejects.toBeInstanceOf(AppError);
   });
 });

@@ -9,9 +9,14 @@ describe('AuthenticateUser', () => {
     const fakeUsersRepository = new FakeUsersRepository();
     const fakeHashProvider = new FakeHashProvider();
 
-    // eslint-disable-next-line max-len
-    const authenticateUserService = new AuthenticateUserService(fakeUsersRepository, fakeHashProvider);
-    const createUserService = new CreateUserService(fakeUsersRepository, fakeHashProvider);
+    const authenticateUserService = new AuthenticateUserService(
+      fakeUsersRepository,
+      fakeHashProvider,
+    );
+    const createUserService = new CreateUserService(
+      fakeUsersRepository,
+      fakeHashProvider,
+    );
 
     const user = await createUserService.execute({
       name: 'John Doe',
@@ -31,8 +36,10 @@ describe('AuthenticateUser', () => {
     const fakeUsersRepository = new FakeUsersRepository();
     const fakeHashProvider = new FakeHashProvider();
 
-    // eslint-disable-next-line max-len
-    const authenticateUserService = new AuthenticateUserService(fakeUsersRepository, fakeHashProvider);
+    const authenticateUserService = new AuthenticateUserService(
+      fakeUsersRepository,
+      fakeHashProvider,
+    );
 
     await expect(authenticateUserService.execute({
       email: 'johondoe@exemple.com',
@@ -44,9 +51,14 @@ describe('AuthenticateUser', () => {
     const fakeUsersRepository = new FakeUsersRepository();
     const fakeHashProvider = new FakeHashProvider();
 
-    // eslint-disable-next-line max-len
-    const authenticateUserService = new AuthenticateUserService(fakeUsersRepository, fakeHashProvider);
-    const createUserService = new CreateUserService(fakeUsersRepository, fakeHashProvider);
+    const authenticateUserService = new AuthenticateUserService(
+      fakeUsersRepository,
+      fakeHashProvider,
+    );
+    const createUserService = new CreateUserService(
+      fakeUsersRepository,
+      fakeHashProvider,
+    );
 
     await createUserService.execute({
       name: 'John Doe',

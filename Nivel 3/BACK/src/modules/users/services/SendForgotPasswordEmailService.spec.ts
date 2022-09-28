@@ -14,7 +14,7 @@ describe('SendForgetPasswordEmail', () => {
     fakeUsersRepository = new FakeUsersRepository();
     fakeMailProvider = new FakeMailProvider();
     fakeUserTokenRepository = new FakeUserTokenRepository();
-    // eslint-disable-next-line max-len
+
     sendForgetPasswordEmailService = new SendForgetPasswordEmailService(
       fakeUsersRepository,
       fakeMailProvider,

@@ -8,7 +8,10 @@ describe('CreateUsers', () => {
     const fakeUsersRepository = new FakeUsersRepository();
     const fakeHashProvider = new FakeHashProvider();
 
-    const createUserService = new CreateUserService(fakeUsersRepository, fakeHashProvider);
+    const createUserService = new CreateUserService(
+      fakeUsersRepository,
+      fakeHashProvider,
+    );
     const user = await createUserService.execute({
       name: 'John Doe',
       email: 'johondoe@exemple.com',
@@ -21,7 +24,10 @@ describe('CreateUsers', () => {
   it('should not be able to create two user on the same email', async () => {
     const fakeUsersRepository = new FakeUsersRepository();
     const fakeHashProvider = new FakeHashProvider();
-    const createUserService = new CreateUserService(fakeUsersRepository, fakeHashProvider);
+    const createUserService = new CreateUserService(
+      fakeUsersRepository,
+      fakeHashProvider,
+    );
     await createUserService.execute({
       name: 'John Doe',
       email: 'johondoe@exemple.com',
