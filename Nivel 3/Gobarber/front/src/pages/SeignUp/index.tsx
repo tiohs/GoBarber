@@ -3,7 +3,7 @@ import { Form } from '@unform/web';
 import { FiArrowLeft, FiMail, FiUser, FiLock } from 'react-icons/fi';
 import * as Yup from 'yup';
 import { ValidationError } from 'yup';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { FormHandles } from '@unform/core';
 import logoImg from '../../assets/logo.svg';
@@ -23,7 +23,7 @@ interface UserDataProps {
 const SignUp: React.FC = () => {
   const { addToast } = useToast();
   const formRef = useRef<FormHandles>(null);
-  const history = useHistory();
+  const navigator = useNavigate();
   const handleSubmit = useCallback(
     async (data: UserDataProps) => {
       try {
@@ -40,7 +40,7 @@ const SignUp: React.FC = () => {
         });
 
         await api.post('/users', data);
-        history.push('/');
+        navigator('/');
         addToast({
           type: 'success',
           description: 'Você se cadastro com sucesso',
@@ -59,7 +59,7 @@ const SignUp: React.FC = () => {
         });
       }
     },
-    [addToast, history],
+    [addToast, navigator],
   );
   return (
     <Container>
