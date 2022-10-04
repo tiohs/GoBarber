@@ -11,6 +11,7 @@ class FakeUserTokensRepository implements IUserTokensRepository {
       id: Math.random().toString().slice(2),
       token: Math.random().toString().slice(2),
       user_id,
+      created_at: new Date(),
     });
 
     this.usersToken.push(userToken);
