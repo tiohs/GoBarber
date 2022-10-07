@@ -5,10 +5,11 @@ import { container } from 'tsyringe';
 import uploadConfig from '@config/uploads';
 import CreateUserService from '@modules/users/services/CreateUserService';
 import ensureAuthenticated from '@modules/users/infra/http/middleware/ensureAuthenticated';
-import UpdateUserAvatarService from '@modules/users/services/UpdateUserAvatarService';
+import UserAvatarController from '../controllers/UserAvatarController';
 
 const usersRouter = Router();
 const upload = multer(uploadConfig);
+const userAvatarController = new UserAvatarController();
 
 usersRouter.post('/', async (request, response) => {
   const { name, email, password } = request.body;
@@ -26,6 +27,6 @@ usersRouter.patch(
   '/avatar',
   ensureAuthenticated,
   upload.single('avatar'),
-
+  userAvatarController.create,
 );
 export default usersRouter;
