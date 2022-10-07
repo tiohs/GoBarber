@@ -3,7 +3,7 @@ import { container } from 'tsyringe';
 import UpdateUserAvatarService from '@modules/users/services/UpdateUserAvatarService';
 
 export default class UserAvatarController {
-  public async create(request: Request, response: Response) {
+  public async update(request: Request, response: Response) {
     const uploadAvatar = container.resolve(UpdateUserAvatarService);
 
     const user = await uploadAvatar.execute({
