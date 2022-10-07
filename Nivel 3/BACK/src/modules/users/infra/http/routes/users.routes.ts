@@ -26,15 +26,6 @@ usersRouter.patch(
   '/avatar',
   ensureAuthenticated,
   upload.single('avatar'),
-  async (request, response) => {
-    const uploadAvatar = container.resolve(UpdateUserAvatarService);
 
-    const user = await uploadAvatar.execute({
-      userId: request.user.id,
-      avatarFilename: request.file?.filename,
-    });
-
-    return response.json(user);
-  },
 );
 export default usersRouter;
