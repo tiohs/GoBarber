@@ -7,8 +7,8 @@ import IUserTokensRepository from '../Repositories/IUserTokensRepository';
 import IHashProvider from '../providers/HashProvider/models/IHashProvider';
 
 interface IRequest {
-  password: string,
-  token: string
+  password: string;
+  token: string;
 }
 
 @injectable()

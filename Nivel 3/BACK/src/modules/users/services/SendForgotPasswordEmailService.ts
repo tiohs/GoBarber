@@ -5,7 +5,7 @@ import IUsersRepository from '../Repositories/IUsersRepository';
 import IUserTokensRepository from '../Repositories/IUserTokensRepository';
 
 interface IRequest {
-  email: string,
+  email: string;
 }
 
 @injectable()

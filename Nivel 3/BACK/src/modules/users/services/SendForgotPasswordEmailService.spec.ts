@@ -37,9 +37,11 @@ describe('SendForgetPasswordEmail', () => {
   });
 
   it('Should not be able to recover a non-existing user password', async () => {
-    await expect(sendForgetPasswordEmailService.execute({
-      email: 'johondoe@exemple.com',
-    })).rejects.toBeInstanceOf(AppError);
+    await expect(
+      sendForgetPasswordEmailService.execute({
+        email: 'johondoe@exemple.com',
+      }),
+    ).rejects.toBeInstanceOf(AppError);
   });
 
   it('Should be able to generate key for user', async () => {
@@ -50,7 +52,9 @@ describe('SendForgetPasswordEmail', () => {
       name: 'John Doe',
       password: '123456',
     });
-    await sendForgetPasswordEmailService.execute({ email: 'johondoe@exemple.com' });
+    await sendForgetPasswordEmailService.execute({
+      email: 'johondoe@exemple.com',
+    });
     await expect(UserToken).toBeCalledWith(user.id);
   });
 });

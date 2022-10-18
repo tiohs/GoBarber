@@ -41,10 +41,12 @@ describe('AuthenticateUser', () => {
       fakeHashProvider,
     );
 
-    await expect(authenticateUserService.execute({
-      email: 'johondoe@exemple.com',
-      password: '123456',
-    })).rejects.toBeInstanceOf(AppError);
+    await expect(
+      authenticateUserService.execute({
+        email: 'johondoe@exemple.com',
+        password: '123456',
+      }),
+    ).rejects.toBeInstanceOf(AppError);
   });
 
   it('should not be able to authenticate with non mach password    ', async () => {
@@ -65,9 +67,11 @@ describe('AuthenticateUser', () => {
       email: 'johondoe@exemple.com',
       password: '123456',
     });
-    await expect(authenticateUserService.execute({
-      email: 'johondoe@exemple.com',
-      password: '123r456',
-    })).rejects.toBeInstanceOf(AppError);
+    await expect(
+      authenticateUserService.execute({
+        email: 'johondoe@exemple.com',
+        password: '123r456',
+      }),
+    ).rejects.toBeInstanceOf(AppError);
   });
 });

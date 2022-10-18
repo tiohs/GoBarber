@@ -5,8 +5,8 @@ import IStorageProvider from '@shared/container/providers/StoryProvider/models/S
 import IUsersRepository from '../Repositories/IUsersRepository';
 
 interface IRequest {
-  userId : string,
-  avatarFilename: string | undefined
+  userId: string;
+  avatarFilename: string | undefined;
 }
 
 @injectable()

@@ -8,13 +8,13 @@ import IUsersRepository from '../Repositories/IUsersRepository';
 import IHashProvider from '../providers/HashProvider/models/IHashProvider';
 
 interface IRequest {
-  email: string,
-  password: string
+  email: string;
+  password: string;
 }
 
 interface IResponse {
   user: User;
-  token: string
+  token: string;
 }
 
 @injectable()
@@ -32,7 +32,10 @@ class AuthenticateUserService {
     if (!user) {
       throw new AppError('Incorrect email/password combination', 401);
     }
-    const passwordMatched = await this.hashProvider.compareHash(password, user.password);
+    const passwordMatched = await this.hashProvider.compareHash(
+      password,
+      user.password,
+    );
     if (!passwordMatched) {
       throw new AppError('Incorrect email/password combination', 401);
     }

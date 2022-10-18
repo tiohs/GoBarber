@@ -5,9 +5,9 @@ import IUsersRepository from '../Repositories/IUsersRepository';
 import IHashProvider from '../providers/HashProvider/models/IHashProvider';
 
 interface IRequest {
-  name: string,
-  email: string,
-  password: string
+  name: string;
+  email: string;
+  password: string;
 }
 
 @injectable()

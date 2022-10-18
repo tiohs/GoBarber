@@ -34,10 +34,12 @@ describe('CreateUsers', () => {
       password: '123456',
     });
 
-    await expect(createUserService.execute({
-      name: 'John Doe',
-      email: 'johondoe@exemple.com',
-      password: '123456',
-    })).rejects.toBeInstanceOf(AppError);
+    await expect(
+      createUserService.execute({
+        name: 'John Doe',
+        email: 'johondoe@exemple.com',
+        password: '123456',
+      }),
+    ).rejects.toBeInstanceOf(AppError);
   });
 });
