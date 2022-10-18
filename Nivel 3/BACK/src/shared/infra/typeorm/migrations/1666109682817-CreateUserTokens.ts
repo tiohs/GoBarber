@@ -1,6 +1,9 @@
+/* eslint-disable brace-style */
+/* eslint-disable indent */
 import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
 export default class CreateUserTokens1666109682817
+  // eslint-disable-next-line indent
   implements MigrationInterface
 {
   public async up(queryRunner: QueryRunner): Promise<void> {
