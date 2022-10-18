@@ -1,19 +1,13 @@
 import { Router } from 'express';
-import { container } from 'tsyringe';
-import AuthenticateUserService from '@modules/users/services/AuthenticateUserService';
+import ResetPasswordControllers from '../controllers/ResetPasswordControllers';
+import ForgotPasswordController from '../controllers/ForgotPasswordController';
 
-const sessionsRouter = Router();
+const passwordRouter = Router();
 
-sessionsRouter.post('/', async (request, response) => {
-  const { email, password } = request.body;
-  const authenticateUser = container.resolve(AuthenticateUserService);
+const forgotPasswordController = new ForgotPasswordController();
+const resetPasswordControllers = new ResetPasswordControllers();
 
-  const { user, token } = await authenticateUser.execute({
-    email,
-    password,
-  });
+passwordRouter.post('/forget', forgotPasswordController.create);
+passwordRouter.post('/reset', resetPasswordControllers.create);
 
-  response.json({ user, token });
-});
-
-export default sessionsRouter;
+export default passwordRouter;
