@@ -6,6 +6,7 @@ class FakeMailProvider implements IMailProvider {
 
   constructor() {
     nodemailer.createTestAccount().then(account => {
+      console.log('Ola');
       const transporter = nodemailer.createTransport({
         host: account.smtp.host,
         port: account.smtp.port,
@@ -21,6 +22,7 @@ class FakeMailProvider implements IMailProvider {
   }
 
   public async sendMail(to: string, body: string): Promise<void> {
+    console.log('Ol');
     const message = await this.client.sendMail({
       from: 'Equipa GoBarber <equipe@gobarber.com>',
       to,
