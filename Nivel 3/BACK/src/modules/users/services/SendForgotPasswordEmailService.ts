@@ -26,8 +26,11 @@ class CreateUserService {
       throw new AppError('Users does not exist ');
     }
 
-    await this.userTokensRepository.generate(user.id);
-    await this.mailProvider.sendMail(email, 'Olá mundo ');
+    const { token } = await this.userTokensRepository.generate(user.id);
+    await this.mailProvider.sendMail(
+      email,
+      `Link de recuperação de senha : ${token}`,
+    );
   }
 }
 
