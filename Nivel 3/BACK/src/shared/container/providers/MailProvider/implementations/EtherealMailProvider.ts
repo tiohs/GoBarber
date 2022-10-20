@@ -22,12 +22,15 @@ class FakeMailProvider implements IMailProvider {
   }
 
   public async sendMail(to: string, body: string): Promise<void> {
-    await this.client.sendMail({
+    const message = await this.client.sendMail({
       from: 'Equipa GoBarber <equipe@gobarber.com>',
       to,
       subject: 'Recuperação de senha',
       text: body,
     });
+    console.log('Message sent: %s', message.messageId);
+    // Preview only available when sending through an Ethereal account
+    console.log('Preview URL: %s', nodemailer.getTestMessageUrl(message));
   }
 }
 
