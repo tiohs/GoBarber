@@ -27,7 +27,7 @@ class CreateUserService {
     }
 
     await this.userTokensRepository.generate(user.id);
-    // await this.mailProvider.sendMail(email, 'Olá mundo ');
+    await this.mailProvider.sendMail(email, 'Olá mundo ');
   }
 }
 
