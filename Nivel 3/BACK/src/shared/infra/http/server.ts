@@ -16,19 +16,21 @@ app.use(cors());
 app.use(express.json());
 app.use('/files', express.static(configAvatar.directory));
 app.use(routes);
-app.use((err: Error, _request: Request, response: Response, _: NextFunction) => {
-  if (err instanceof AppError) {
-    return response.status(err.statusCode).json({
-      status: err.statusCode,
-      message: err.message,
-    });
-  }
+app.use(
+  (err: Error, _request: Request, response: Response, _: NextFunction) => {
+    if (err instanceof AppError) {
+      return response.status(err.statusCode).json({
+        status: err.statusCode,
+        message: err.message,
+      });
+    }
 
-  return response.status(500).json({
-    status: 500,
-    message: 'Interno Error ',
-  });
-});
+    return response.status(500).json({
+      status: 500,
+      message: 'Interno Error ',
+    });
+  },
+);
 app.listen(4000, () => {
   console.log('Localhost port 4000');
 });
