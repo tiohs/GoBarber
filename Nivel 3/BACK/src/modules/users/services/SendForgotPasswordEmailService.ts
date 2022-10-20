@@ -25,11 +25,9 @@ class CreateUserService {
     if (!user) {
       throw new AppError('Users does not exist ');
     }
-    console.log('Ola mundo ');
     await this.userTokensRepository.generate(user.id);
 
     await this.mailProvider.sendMail(email, 'Olá mundo ');
-    console.log('aqui');
   }
 }
 
