@@ -1,5 +1,5 @@
 interface ITemplateVariables {
-  [key: string]: string | number;
+  [key: string]: unknown;
 }
 export default interface IParseMailTemplateDTO {
   template: string;
