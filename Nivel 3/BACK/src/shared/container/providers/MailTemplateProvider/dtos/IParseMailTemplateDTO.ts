@@ -2,6 +2,6 @@ interface ITemplateVariables {
   [key: string]: unknown;
 }
 export default interface IParseMailTemplateDTO {
-  template: string;
+  file: string;
   variables: ITemplateVariables;
 }
