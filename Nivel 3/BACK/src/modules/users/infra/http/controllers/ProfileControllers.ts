@@ -11,6 +11,7 @@ export default class ProfileController {
     const showProfile = container.resolve(ShowProfileService);
 
     const user = await showProfile.execute({ userId });
+
     return response.json(user);
   }
 
