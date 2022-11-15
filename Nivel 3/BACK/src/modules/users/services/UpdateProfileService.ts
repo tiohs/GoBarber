@@ -31,7 +31,7 @@ class UpdateUserAvatarService {
     const user = await this.usersRepository.findById(userId);
 
     if (!user) {
-      throw new Error(' User not found');
+      throw new AppError(' User not found');
     }
 
     const userWithUpdatedEmail = await this.usersRepository.findByEmail(email);

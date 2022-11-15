@@ -1,4 +1,4 @@
-// import AppError from '@shared/error/AppError';
+import AppError from '@shared/error/AppError';
 import FakeUsersRepository from '../Repositories/fakes/FakeUsersRepository';
 import FakeHashProvider from '../providers/HashProvider/fakes/FakeHashProvider';
 import UpdateProfileService from './UpdateProfileService';
@@ -35,24 +35,58 @@ describe('UpdateUserPortfolio', () => {
 
     expect(user.name).toBe(updateUser.name);
   });
+  it('should be able to update user  ', async () => {
+    const fakeUsersRepository = new FakeUsersRepository();
 
-  // it('should be able to create a new avatar to user ', async () => {
-  //   const fakeUsersRepository = new FakeUsersRepository();
-  //   const fakeStorageProvider = new FakeStorageProvider();
+    const fakeHashProvider = new FakeHashProvider();
+    const updateProfileService = new UpdateProfileService(
+      fakeUsersRepository,
+      fakeHashProvider,
+    );
+    const createUserService = new CreateUserService(
+      fakeUsersRepository,
+      fakeHashProvider,
+    );
+    // eslint-disable-next-line max-len
 
-  //   // eslint-disable-next-line max-len
-  //   const updateUserAvatarService = new UpdateUserAvatarService(
-  //     fakeUsersRepository,
-  //     fakeStorageProvider,
-  //   );
+    await createUserService.execute({
+      name: 'John Doe',
+      email: 'johondoe@exemple.com',
+      password: '123456',
+    });
 
-  //   await expect(
-  //     updateUserAvatarService.execute({
-  //       avatarFilename: 'avatar.jpg',
-  //       userId: 'not-exist',
-  //     }),
-  //   ).rejects.toBeInstanceOf(Error);
-  // });
+    await expect(
+      updateProfileService.execute({
+        userId: '132456678uhbj',
+        name: 'Hamilton Silva',
+        email: 'johondoe@exemple.com',
+        password: '12345612',
+        old_password: '123456',
+      }),
+    ).rejects.toBeInstanceOf(AppError);
+  });
+  it('should not be able to update if user there are not  ', async () => {
+    const fakeUsersRepository = new FakeUsersRepository();
+
+    const fakeHashProvider = new FakeHashProvider();
+    const updateProfileService = new UpdateProfileService(
+      fakeUsersRepository,
+      fakeHashProvider,
+    );
+
+    // eslint-disable-next-line max-len
+
+    await expect(
+      updateProfileService.execute({
+        userId: '132456678uhbj',
+        name: 'Hamilton Silva',
+        email: 'johondoe1@exemple.com',
+        password: '12345612',
+        old_password: '123456',
+      }),
+    ).rejects.toBeInstanceOf(AppError);
+  });
+
   // it('should be able delete avatar and create a new avatar to user  ', async () => {
   //   const fakeUsersRepository = new FakeUsersRepository();
   //   const fakeStorageProvider = new FakeStorageProvider();
