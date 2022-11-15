@@ -53,12 +53,14 @@ class UpdateUserAvatarService {
         old_password,
         user.password,
       );
+
       if (!checkOldPassword) {
         throw new AppError('Old password does not match.');
       }
 
       user.password = await this.hashProvider.generateHash(password);
     }
+
     return this.usersRepository.save(user);
   }
 }

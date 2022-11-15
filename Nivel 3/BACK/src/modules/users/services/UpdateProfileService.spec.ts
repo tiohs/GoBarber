@@ -35,7 +35,8 @@ describe('UpdateUserPortfolio', () => {
 
     expect(user.name).toBe(updateUser.name);
   });
-  it('should be able to update user  ', async () => {
+
+  it('should not be able to update if email user == email existed  ', async () => {
     const fakeUsersRepository = new FakeUsersRepository();
 
     const fakeHashProvider = new FakeHashProvider();
@@ -49,17 +50,22 @@ describe('UpdateUserPortfolio', () => {
     );
     // eslint-disable-next-line max-len
 
-    await createUserService.execute({
+    const user = await createUserService.execute({
       name: 'John Doe',
       email: 'johondoe@exemple.com',
+      password: '123456',
+    });
+    await createUserService.execute({
+      name: 'John Doe',
+      email: 'johondoe1@exemple.com',
       password: '123456',
     });
 
     await expect(
       updateProfileService.execute({
-        userId: '132456678uhbj',
+        userId: user.id,
         name: 'Hamilton Silva',
-        email: 'johondoe@exemple.com',
+        email: 'johondoe1@exemple.com',
         password: '12345612',
         old_password: '123456',
       }),
@@ -86,63 +92,100 @@ describe('UpdateUserPortfolio', () => {
       }),
     ).rejects.toBeInstanceOf(AppError);
   });
+  it('should not be able to update if oldPassword is not digite  ', async () => {
+    const fakeUsersRepository = new FakeUsersRepository();
 
-  // it('should be able delete avatar and create a new avatar to user  ', async () => {
-  //   const fakeUsersRepository = new FakeUsersRepository();
-  //   const fakeStorageProvider = new FakeStorageProvider();
-  //   const fakeHashProvider = new FakeHashProvider();
-  //   const createUserService = new CreateUserService(
-  //     fakeUsersRepository,
-  //     fakeHashProvider,
-  //   );
-  //   const deleteFile = jest.spyOn(fakeStorageProvider, 'deleteFile');
+    const fakeHashProvider = new FakeHashProvider();
+    const updateProfileService = new UpdateProfileService(
+      fakeUsersRepository,
+      fakeHashProvider,
+    );
+    const createUserService = new CreateUserService(
+      fakeUsersRepository,
+      fakeHashProvider,
+    );
+    // eslint-disable-next-line max-len
 
-  //   // eslint-disable-next-line max-len
-  //   const updateUserAvatarService = new UpdateUserAvatarService(
-  //     fakeUsersRepository,
-  //     fakeStorageProvider,
-  //   );
-  //   const user = await createUserService.execute({
-  //     name: 'John Doe',
-  //     email: 'johondoe@exemple.com',
-  //     password: '123456',
-  //   });
+    const user = await createUserService.execute({
+      name: 'John Doe',
+      email: 'johondoe@exemple.com',
+      password: '123456',
+    });
 
-  //   await updateUserAvatarService.execute({
-  //     avatarFilename: 'avatar.jpg',
-  //     userId: user.id,
-  //   });
-  //   const response = await updateUserAvatarService.execute({
-  //     avatarFilename: 'avatar1.jpg',
-  //     userId: user.id,
-  //   });
-  //   expect(deleteFile).toHaveBeenCalledWith('avatar.jpg');
-  //   expect(response.avatar).toBe('avatar1.jpg');
-  // });
-  // it('should be able to create a new avatar to user ', async () => {
-  //   const fakeUsersRepository = new FakeUsersRepository();
-  //   const fakeStorageProvider = new FakeStorageProvider();
-  //   const fakeHashProvider = new FakeHashProvider();
-  //   const createUserService = new CreateUserService(
-  //     fakeUsersRepository,
-  //     fakeHashProvider,
-  //   );
+    await expect(
+      updateProfileService.execute({
+        userId: user.id,
+        name: 'Hamilton Silva',
+        email: 'johondoe1@exemple.com',
+        password: '12345612',
+        old_password: '',
+      }),
+    ).rejects.toBeInstanceOf(AppError);
+  });
+  it('should not be able to update if oldPassword and password is not digite  ', async () => {
+    const fakeUsersRepository = new FakeUsersRepository();
 
-  //   const updateUserAvatarService = new UpdateUserAvatarService(
-  //     fakeUsersRepository,
-  //     fakeStorageProvider,
-  //   );
-  //   const user = await createUserService.execute({
-  //     name: 'John Doe',
-  //     email: 'johondoe@exemple.com',
-  //     password: '123456',
-  //   });
+    const fakeHashProvider = new FakeHashProvider();
+    const updateProfileService = new UpdateProfileService(
+      fakeUsersRepository,
+      fakeHashProvider,
+    );
+    const createUserService = new CreateUserService(
+      fakeUsersRepository,
+      fakeHashProvider,
+    );
+    // eslint-disable-next-line max-len
 
-  //   await expect(
-  //     updateUserAvatarService.execute({
-  //       avatarFilename: undefined,
-  //       userId: user.id,
-  //     }),
-  //   ).rejects.toBeInstanceOf(AppError);
-  // });
+    const user = await createUserService.execute({
+      name: 'John Doe',
+      email: 'johondoe@exemple.com',
+      password: '123456',
+    });
+    const updateUser = await updateProfileService.execute({
+      userId: user.id,
+      name: 'Hamilton Silva',
+      email: 'johondoe1@exemple.com',
+    });
+
+    expect(updateUser.name).toBe(user.name);
+  });
+
+  it('should not be able to update if oldPassword is not correct  ', async () => {
+    const fakeUsersRepository = new FakeUsersRepository();
+
+    const fakeHashProvider = new FakeHashProvider();
+    const updateProfileService = new UpdateProfileService(
+      fakeUsersRepository,
+      fakeHashProvider,
+    );
+    const createUserService = new CreateUserService(
+      fakeUsersRepository,
+      fakeHashProvider,
+    );
+    // eslint-disable-next-line max-len
+
+    const user = await createUserService.execute({
+      name: 'John Doe',
+      email: 'johondoe@exemple.com',
+      password: '123456',
+    });
+    const o = await updateProfileService.execute({
+      userId: user.id,
+      name: 'Hamilton Silva',
+      email: 'johondoe1@exemple.com',
+      password: '102874275',
+      old_password: 'dsjhdgjsfdjd',
+    });
+    console.log(o);
+
+    await expect(
+      updateProfileService.execute({
+        userId: user.id,
+        name: 'Hamilton Silva',
+        email: 'johondoe1@exemple.com',
+        password: '102874275',
+        old_password: 'dsjhdgjsfdjd',
+      }),
+    ).rejects.toBeInstanceOf(AppError);
+  });
 });
