@@ -2,189 +2,128 @@ import AppError from '@shared/error/AppError';
 import FakeUsersRepository from '../Repositories/fakes/FakeUsersRepository';
 import FakeHashProvider from '../providers/HashProvider/fakes/FakeHashProvider';
 import UpdateProfileService from './UpdateProfileService';
-import CreateUserService from './CreateUserService';
 
-describe('UpdateUserPortfolio', () => {
-  it('should be able to update user  ', async () => {
-    const fakeUsersRepository = new FakeUsersRepository();
+let fakeUsersRepository: FakeUsersRepository;
+let fakeHashProvider: FakeHashProvider;
+let updateProfile: UpdateProfileService;
 
-    const fakeHashProvider = new FakeHashProvider();
-    const updateProfileService = new UpdateProfileService(
+describe('UpdateProfile', () => {
+  beforeEach(() => {
+    fakeUsersRepository = new FakeUsersRepository();
+    fakeHashProvider = new FakeHashProvider();
+
+    updateProfile = new UpdateProfileService(
       fakeUsersRepository,
       fakeHashProvider,
     );
-    const createUserService = new CreateUserService(
-      fakeUsersRepository,
-      fakeHashProvider,
-    );
-    // eslint-disable-next-line max-len
+  });
 
-    const user = await createUserService.execute({
-      name: 'John Doe',
-      email: 'johondoe@exemple.com',
+  it('should be able to update the profile', async () => {
+    const user = await fakeUsersRepository.create({
+      name: 'My Name',
+      email: 'myemail@google.com',
       password: '123456',
     });
 
-    const updateUser = await updateProfileService.execute({
+    const updadatedUser = await updateProfile.execute({
       userId: user.id,
-      name: 'Hamilton Silva',
-      email: 'johondoe1@exemple.com',
-      password: '12345612',
+      name: 'Carlos Severino',
+      email: 'carlos-severino@google.com',
+    });
+
+    // expect(appointment.id).toBe('039390-he3009');
+
+    expect(updadatedUser.name).toBe('Carlos Severino');
+    expect(updadatedUser.email).toBe('carlos-severino@google.com');
+  });
+
+  //
+
+  it('should not be able change email of a existing another user email', async () => {
+    await fakeUsersRepository.create({
+      name: 'My Name',
+      email: 'myemail@google.com',
+      password: '123456',
+    });
+
+    const user = await fakeUsersRepository.create({
+      name: 'Test',
+      email: 'carlos-severino@google.com',
+      password: '123456',
+    });
+
+    await expect(
+      updateProfile.execute({
+        userId: user.id,
+        name: 'Carlos Severino',
+        email: 'myemail@google.com',
+      }),
+    ).rejects.toBeInstanceOf(AppError);
+  });
+
+  //
+
+  it('should not be able to update the profile of a non existing user', async () => {
+    expect(
+      updateProfile.execute({
+        userId: 'non existing user id',
+        name: 'Carlos Severino',
+        email: 'myemail@google.com',
+      }),
+    ).rejects.toBeInstanceOf(AppError);
+  });
+
+  //
+
+  it('should be able to update the password', async () => {
+    const user = await fakeUsersRepository.create({
+      name: 'My Name',
+      email: 'myemail@google.com',
+      password: '123456',
+    });
+
+    const updadatedUser = await updateProfile.execute({
+      userId: user.id,
+      name: 'Carlos Severino',
+      email: 'carlos-severino@google.com',
       old_password: '123456',
+      password: '123123',
     });
 
-    expect(user.name).toBe(updateUser.name);
+    expect(updadatedUser.password).toBe('123123');
   });
 
-  it('should not be able to update if email user == email existed  ', async () => {
-    const fakeUsersRepository = new FakeUsersRepository();
-
-    const fakeHashProvider = new FakeHashProvider();
-    const updateProfileService = new UpdateProfileService(
-      fakeUsersRepository,
-      fakeHashProvider,
-    );
-    const createUserService = new CreateUserService(
-      fakeUsersRepository,
-      fakeHashProvider,
-    );
-    // eslint-disable-next-line max-len
-
-    const user = await createUserService.execute({
-      name: 'John Doe',
-      email: 'johondoe@exemple.com',
-      password: '123456',
-    });
-    await createUserService.execute({
-      name: 'John Doe',
-      email: 'johondoe1@exemple.com',
+  it('should not be able to update the password without old Password', async () => {
+    const user = await fakeUsersRepository.create({
+      name: 'My Name',
+      email: 'myemail@google.com',
       password: '123456',
     });
 
     await expect(
-      updateProfileService.execute({
+      updateProfile.execute({
         userId: user.id,
-        name: 'Hamilton Silva',
-        email: 'johondoe1@exemple.com',
-        password: '12345612',
-        old_password: '123456',
+        name: 'Carlos Severino',
+        email: 'carlos-severino@google.com',
+        password: '123123',
       }),
     ).rejects.toBeInstanceOf(AppError);
   });
-  it('should not be able to update if user there are not  ', async () => {
-    const fakeUsersRepository = new FakeUsersRepository();
 
-    const fakeHashProvider = new FakeHashProvider();
-    const updateProfileService = new UpdateProfileService(
-      fakeUsersRepository,
-      fakeHashProvider,
-    );
-
-    // eslint-disable-next-line max-len
-
-    await expect(
-      updateProfileService.execute({
-        userId: '132456678uhbj',
-        name: 'Hamilton Silva',
-        email: 'johondoe1@exemple.com',
-        password: '12345612',
-        old_password: '123456',
-      }),
-    ).rejects.toBeInstanceOf(AppError);
-  });
-  it('should not be able to update if oldPassword is not digite  ', async () => {
-    const fakeUsersRepository = new FakeUsersRepository();
-
-    const fakeHashProvider = new FakeHashProvider();
-    const updateProfileService = new UpdateProfileService(
-      fakeUsersRepository,
-      fakeHashProvider,
-    );
-    const createUserService = new CreateUserService(
-      fakeUsersRepository,
-      fakeHashProvider,
-    );
-    // eslint-disable-next-line max-len
-
-    const user = await createUserService.execute({
-      name: 'John Doe',
-      email: 'johondoe@exemple.com',
+  it('should not be able to update the password with wrong old Password', async () => {
+    const user = await fakeUsersRepository.create({
+      name: 'My Name',
+      email: 'myemail@google.com',
       password: '123456',
     });
 
     await expect(
-      updateProfileService.execute({
+      updateProfile.execute({
         userId: user.id,
-        name: 'Hamilton Silva',
-        email: 'johondoe1@exemple.com',
-        password: '12345612',
-        old_password: '',
-      }),
-    ).rejects.toBeInstanceOf(AppError);
-  });
-  it('should not be able to update if oldPassword and password is not digite  ', async () => {
-    const fakeUsersRepository = new FakeUsersRepository();
-
-    const fakeHashProvider = new FakeHashProvider();
-    const updateProfileService = new UpdateProfileService(
-      fakeUsersRepository,
-      fakeHashProvider,
-    );
-    const createUserService = new CreateUserService(
-      fakeUsersRepository,
-      fakeHashProvider,
-    );
-    // eslint-disable-next-line max-len
-
-    const user = await createUserService.execute({
-      name: 'John Doe',
-      email: 'johondoe@exemple.com',
-      password: '123456',
-    });
-    const updateUser = await updateProfileService.execute({
-      userId: user.id,
-      name: 'Hamilton Silva',
-      email: 'johondoe1@exemple.com',
-    });
-
-    expect(updateUser.name).toBe(user.name);
-  });
-
-  it('should not be able to update if oldPassword is not correct  ', async () => {
-    const fakeUsersRepository = new FakeUsersRepository();
-
-    const fakeHashProvider = new FakeHashProvider();
-    const updateProfileService = new UpdateProfileService(
-      fakeUsersRepository,
-      fakeHashProvider,
-    );
-    const createUserService = new CreateUserService(
-      fakeUsersRepository,
-      fakeHashProvider,
-    );
-    // eslint-disable-next-line max-len
-
-    const user = await createUserService.execute({
-      name: 'John Doe',
-      email: 'johondoe@exemple.com',
-      password: '123456',
-    });
-    const o = await updateProfileService.execute({
-      userId: user.id,
-      name: 'Hamilton Silva',
-      email: 'johondoe1@exemple.com',
-      password: '102874275',
-      old_password: 'dsjhdgjsfdjd',
-    });
-    console.log(o);
-
-    await expect(
-      updateProfileService.execute({
-        userId: user.id,
-        name: 'Hamilton Silva',
-        email: 'johondoe1@exemple.com',
-        password: '102874275',
-        old_password: 'dsjhdgjsfdjd',
+        name: 'Carlos Severino',
+        email: 'carlos-severino@google.com',
+        password: '123123',
+        old_password: '333333',
       }),
     ).rejects.toBeInstanceOf(AppError);
   });
