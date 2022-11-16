@@ -10,17 +10,19 @@ interface IRequest {
 }
 
 @injectable()
-export default class ShowProfileService {
+export default class ListProviderServices {
   constructor(
     @inject('UsersRepository')
     private usersRepository: IUsersRepository,
   ) {}
 
-  public async execute({ userId }: IRequest): Promise<User> {
-    const users = await this.usersRepository.findById(userId);
+  public async execute({ userId }: IRequest): Promise<User[]> {
+    const users = await this.usersRepository.findAllProviders({
+      except_user_id: userId,
+    });
 
     if (!users) {
-      throw new AppError('User not found.');
+      throw new AppError('Not Exist User .');
     }
 
     return users;
