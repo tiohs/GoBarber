@@ -1,7 +1,5 @@
 import { injectable, inject } from 'tsyringe';
 
-import AppError from '@shared/error/AppError';
-
 import IUsersRepository from '@modules/users/Repositories/IUsersRepository';
 import User from '@modules/users/infra/typeorm/entities/Users';
 
@@ -20,10 +18,6 @@ export default class ListProviderServices {
     const users = await this.usersRepository.findAllProviders({
       except_user_id: userId,
     });
-
-    if (!users) {
-      throw new AppError('Not Exist User .');
-    }
 
     return users;
   }

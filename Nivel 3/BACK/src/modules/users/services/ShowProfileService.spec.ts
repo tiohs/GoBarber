@@ -22,7 +22,7 @@ describe('UpdateProfile', () => {
     });
 
     const profile = await showProfile.execute({
-      user_id: user.id,
+      userId: user.id,
     });
 
     expect(profile.name).toBe('My Name');
@@ -34,7 +34,7 @@ describe('UpdateProfile', () => {
   it('should not be able to show the profile of a non existing user', async () => {
     expect(
       showProfile.execute({
-        user_id: 'non existing user id',
+        userId: 'non existing user id',
       }),
     ).rejects.toBeInstanceOf(AppError);
   });
