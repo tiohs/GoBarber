@@ -7,26 +7,28 @@ let listProviderMonthAvailability: ListProviderMonthAvailability;
 describe('UpdateProfile', () => {
   beforeEach(() => {
     fakeAppointmentsRepository = new FakeAppointmentsRepository();
-    listProviderMonthAvailability = new ListProviderMonthAvailability();
+    listProviderMonthAvailability = new ListProviderMonthAvailability(
+      fakeAppointmentsRepository,
+    );
   });
 
   it('should be able to list the month availability from provider', async () => {
-    await fakeAppointmentsRepository.create({
+     await fakeAppointmentsRepository.create({
       provider_id: 'user',
-      date: new Date(2022, 12, 20, 8, 0, 0),
+      date: new Date(2022, 11, 20, 8, 0, 0),
     });
     await fakeAppointmentsRepository.create({
       provider_id: 'user',
-      date: new Date(2022, 12, 20, 10, 0, 0),
+      date: new Date(2022, 11, 20, 10, 0, 0),
     });
     await fakeAppointmentsRepository.create({
       provider_id: 'user',
-      date: new Date(2022, 12, 21, 8, 0, 0),
+      date: new Date(2022, 11, 21, 8, 0, 0),
     });
     const availability = await listProviderMonthAvailability.execute({
-      userId: 'user',
-      year: 2020,
-      month: 5,
+      provider_id: 'user',
+      year: 2022,
+      month: 12,
     });
     expect(availability).toEqual(
       expect.arrayContaining([
