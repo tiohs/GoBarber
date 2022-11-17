@@ -12,8 +12,10 @@ type IResponse = {
 }[];
 
 @injectable()
-export default class LisProviderMonthAvailabilityService {
+export default class ListProviderMonthAvailabilityService {
   constructor() {}
 
-  public async execute(): Promise<IResponse> {}
+  public async execute({ userId, year, month }): Promise<IResponse> {
+    return [{ day: 1, available: false }];
+  }
 }
