@@ -8,7 +8,6 @@ Resumão Back ->
 
 Separar da rota o que é **regra de negócio** e o que é **transformação de dados**
 
-
 - Transformação de dados => Fica na rota
 
 - Regra de negócio => Vai para o service, que executa a regra de negócio e retorna para a rota
@@ -19,6 +18,7 @@ Separar da rota o que é **regra de negócio** e o que é **transformação de d
 - Realiza a regra de negócio e após repassa para outra função ou para a rota.
 
 - Dependency Inversion Principle
+
   - Receber repositório por parâmetro no constructor
 
 - Single Responsibility Principle -> Cada arquivo possui somente uma responsabilidade
@@ -28,11 +28,12 @@ Separar da rota o que é **regra de negócio** e o que é **transformação de d
 - Dependency Inversion Principle
 
 # Repository
+
 É um conceito introduzido no Data Mapper Pattern ou Repository Pattern que consiste em uma ponte entre nossa aplicação e a fonte de dados, seja ela um banco de dados, um arquivo físico ou qualquer outro meio de persistência de dados da aplicação.
 
 Esse implementação visa isolar a forma com que nos comunicamos com os dados, **abstraindo lógicas comuns de operações no banco.**
 
-Geralmente o **Repository** possui métodos comuns de comunicação com uma fonte de dados como **listagem, busca, criação, edição, remoção, mas conforme a aplicação cresce o desenvolvedor tende a encontrar outras operações repetitíveis e, com isso popula o repositório com mais funcionalidades.
+Geralmente o **Repository** possui métodos comuns de comunicação com uma fonte de dados como \*\*listagem, busca, criação, edição, remoção, mas conforme a aplicação cresce o desenvolvedor tende a encontrar outras operações repetitíveis e, com isso popula o repositório com mais funcionalidades.
 
 ## Exemplo real
 
@@ -46,7 +47,7 @@ Em um cenário real, essa busca por disponibilidade de um quarto pode ser feita 
 
 O **Service** é um conceito introduzido no **Service Pattern**. Ele tem como objetivo abstrair regras de negócio das rotas, além de tornar nosso código mais reutilizável.
 
-No contexto da nossa jornada, essa implementação visa reduzir a complexidade das rotas da nossa aplicação e deixá-las responsáveis apenas pelo uqe realmente devem fazer: **receber uma requisição, repassar os dados para outro arquivo e devolver uma resposta.
+No contexto da nossa jornada, essa implementação visa reduzir a complexidade das rotas da nossa aplicação e deixá-las responsáveis apenas pelo uqe realmente devem fazer: \*\*receber uma requisição, repassar os dados para outro arquivo e devolver uma resposta.
 
 O Service deve ter um nome descritivo, e **sempre possuir apenas um método**. Além disso, caso outra rota ou arquivo precise executar essa mesma ação, basta chama e executar esse Service, obedecendo assim a outro importante princípio: **DRY**.
 
@@ -58,39 +59,41 @@ Dessa forma, a simples ação de reservar um quarto irá desencadear em diversas
 
 Além disso, imagine que em outras ações como consumir produtos do Hotel seja necessário executar algumas ações novamente, como realizar o pagamento. Com o Service criado, basta chamá-lo e executá-lo novamente.
 
-
 # Rota
+
 Tem como responsablidade receber requisão , chamar uma função para retorna os dados
 da reposta da rota
 
 # Banco de dados
 
 Estrátegias de abstração existe 3 principais que são :
-  - **Drives** - Lidar direito com banco dedos pg - está é a forma mais raiz
-  - **Query build**  - construir as query com js depois converte para sql
-  - **ORM** - Object Relational Mapping
+
+- **Drives** - Lidar direito com banco dedos pg - está é a forma mais raiz
+- **Query build** - construir as query com js depois converte para sql
+- **ORM** - Object Relational Mapping
 
 # Docker
 
-* Como funciona ?
+- Como funciona ?
   - Criação de ambiente isolados (container)
   -
 
-
 ### TYPEORM
-- Meter as configurações do banco de dados no arquivo ***ormconfig.json***
 
+- Meter as configurações do banco de dados no arquivo **_ormconfig.json_**
 
 # JWT
 
 É uma metologia de fazer autenticação de aplicação em Rest API em JSON
 
 Token JWT ele está divido em 3 camadas que são :
-  - Headers (Tipos de token, algoritmo)
-  - Payload (Dados adicionais) podemos guarda dados do usuário
-  - Assinatura
+
+- Headers (Tipos de token, algoritmo)
+- Payload (Dados adicionais) podemos guarda dados do usuário
+- Assinatura
 
 ### Nota
+
 Quando não existe uma typagem numa lib agene tem como sub-escrever tipos com rack
 
 Mudar os typos na pasta **@types** rescrever a typagem criando um arquivo com o nome da pasta e ponto d :
@@ -99,6 +102,7 @@ Ex : express.d.ts
 Substituição de tipos
 
 Esse erro estava no Rest
+
 ```js
 declare namespace Express {
   export interface Request {
@@ -111,28 +115,28 @@ declare namespace Express {
 
 ### Exception Handling
 
-***Lidando com erros*** aqui lidamos com todo e qualquer tipo de erro da aplicação.
+**_Lidando com erros_** aqui lidamos com todo e qualquer tipo de erro da aplicação.
 
 Ex : O que fizemos para o fluxo de rotas que é AppErros
 
 **Middlewres**
 
 Para tratamento de erro ele tem 4 parametros :
-  - Error
-  - Request
-  - Response
-  - NexTFuntion
+
+- Error
+- Request
+- Response
+- NexTFuntion
 
 # Arquitectura de Software
 
 Domínio : Qual a área de conhecimento daquele módulo/arquivo
 Sendo assim os nossos arquivos vão ser devidido em modulos
 
-
- **DDD**
+**DDD**
 
 - Domain Driven Design (metologia que vêm com modelos para trabalhar no **DDD**)
-DDD só se aplica no **Back-End**
+  DDD só se aplica no **Back-End**
 
 Separando por `Modulos` com base no `Dominio`
 
@@ -184,12 +188,13 @@ Testes que simulam a ação do usuario dentro da aplicação
 
 # Mapeamento as Features do Sistema
 
-``` Funcionalidade Macro - são coisas que por dentro são mais definidas mais conseguimos ver por tela ```
+`Funcionalidade Macro - são coisas que por dentro são mais definidas mais conseguimos ver por tela`
+
 # Recuperação de senha
 
 **RF**
 
-```Requisitos Funcionas - são as funcionalidades que o usúario ```
+`Requisitos Funcionas - são as funcionalidades que o usúario `
 
 - O usuário deve poder recuperar sua senha informando o seu e-amil;
 - O usuário deve receber um e-mail com instruçães de recuperação de senha
@@ -197,7 +202,7 @@ Testes que simulam a ação do usuario dentro da aplicação
 
 **RNF**
 
-```Não são ligadas ligada direitamente com a regra de negocio : lib, banco de dados que usaremos```
+`Não são ligadas ligada direitamente com a regra de negocio : lib, banco de dados que usaremos`
 
 - Utilizar Mailtrap para testar envios em ambiente de dev;
 - Utilizar amazon SES para envios em produção;
@@ -209,7 +214,9 @@ Testes que simulam a ação do usuario dentro da aplicação
 - O usuário precisa confirmar a nova senha ao resetar sua senha;
 
 # Actualização do perfil
+
 **RF**
+
 - O usuário deve poder actualizar seu nome, email e senha;
 
 **RN**
@@ -233,20 +240,35 @@ Testes que simulam a ação do usuario dentro da aplicação
 - As notificações do prestador devem ser enviadas em tempo-real utilizando Socket.io;
 
 **RN**
+
 - Notificação deve ter um status de lida ou não lida para que o prestador possa controlar
+
 # Agendamento de serviços
 
 **RF**
+
 - O usuário deve poder lista todos prestadores de serviço cadastrado;
 - O usuário deve poder lista os dias de um mês com pelo menos um horário disponivel de um prestador;
 - O usuário deve poder listar horários disponivel em um dia específico de um prestador;
 - O usuário deve porder realizar um novo agendamento com um prestador;
 
 **RNF**
+
 - Listagem de prestadores deve ser armazenada em cache;
-**RN**
+  **RN**
 - Cada agendamento deve durar 1h exatamente;
 - Os agendamento devem estar disponiveis entre as 8 horas ás 16;
 - O usuario não pode agendar em um horário já ocupado;
 - O usuário não pode agendar em um horario que já passou;
 - O usuário não pode agendar serviços consigo mesmo;
+
+**Nota : Quando é criando o banco dedos a relação é feita assim para que o objecto aceite não só o user_id mais também o user**
+
+```js
+  @Column()
+  provider_id: string;
+
+  @ManyToOne(() => User)
+  @JoinColumn({ name: 'provider_id' })
+  provider: User;
+```
