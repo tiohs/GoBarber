@@ -16,10 +16,12 @@ describe('UpdateProfile', () => {
     await fakeAppointmentsRepository.create({
       provider_id: 'user',
       date: new Date(2022, 11, 20, 9, 0, 0),
+      user_id: 'user',
     });
     await fakeAppointmentsRepository.create({
       provider_id: 'user',
       date: new Date(2022, 11, 20, 10, 0, 0),
+      user_id: 'user',
     });
 
     jest
