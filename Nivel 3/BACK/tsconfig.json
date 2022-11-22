@@ -11,8 +11,8 @@
       "@shared/*": ["shared/*"],
       "@config/*": ["config/*"]
     },
-      "outDir": "./dist",
-     "esModuleInterop": true,
+    "outDir": "./dist",
+    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "strictPropertyInitialization": false,
