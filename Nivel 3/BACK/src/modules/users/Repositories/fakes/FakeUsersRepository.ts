@@ -1,3 +1,4 @@
+import { randomUUID as uuid } from 'crypto';
 import Users from '@modules/users/infra/typeorm/entities/Users';
 import IUsersRepository from '@modules/users/Repositories/IUsersRepository';
 import ICreateUserDTD from '@modules/users/dtos/ICreateUserDTO';
@@ -34,7 +35,7 @@ class UsersRepository implements IUsersRepository {
     const user = new Users();
 
     Object.assign(user, {
-      id: Math.random().toString().slice(2),
+      id: uuid(),
       name,
       email,
       password,

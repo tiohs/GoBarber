@@ -1,3 +1,4 @@
+import { randomUUID as uuid } from 'crypto';
 import UserToken from '@modules/users/infra/typeorm/entities/UserToken';
 import IUserTokensRepository from '@modules/users/Repositories/IUserTokensRepository';
 
@@ -8,8 +9,8 @@ class FakeUserTokensRepository implements IUserTokensRepository {
     const userToken = new UserToken();
 
     Object.assign(userToken, {
-      id: Math.random().toString().slice(2),
-      token: Math.random().toString().slice(2),
+      id: uuid(),
+      token: uuid(),
       user_id,
       created_at: new Date(),
     });
@@ -19,7 +20,9 @@ class FakeUserTokensRepository implements IUserTokensRepository {
   }
 
   public async findByToken(token: string): Promise<UserToken | undefined> {
-    const userToken = this.usersToken.find((findToken) => findToken.token === token);
+    const userToken = this.usersToken.find(
+      findToken => findToken.token === token,
+    );
 
     return userToken;
   }
