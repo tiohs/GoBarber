@@ -28,6 +28,7 @@ class CreateAppointmentService {
   }: IRequest): Promise<Appointment> {
     const appointmentDate = startOfHour(date);
 
+    console.log(appointmentDate);
     if (isBefore(appointmentDate, Date.now())) {
       throw new AppError("You can't create an appointment on a past date");
     }
@@ -52,7 +53,7 @@ class CreateAppointmentService {
       date: appointmentDate,
       user_id,
     });
-    console.log(appointmentDate);
+
     const formatDate = format(appointmentDate, "dd/MM/yyyy 'às' HH:mm ");
 
     await this.notificationRepository.create({
