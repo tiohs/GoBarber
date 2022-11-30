@@ -272,3 +272,5 @@ Testes que simulam a ação do usuario dentro da aplicação
   @JoinColumn({ name: 'provider_id' })
   provider: User;
 ```
+
+`Falta remover a password das requisões`
