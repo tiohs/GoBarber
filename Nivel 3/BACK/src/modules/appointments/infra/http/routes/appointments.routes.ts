@@ -8,6 +8,7 @@ const appointmentsRouter = Router();
 
 const appointmentController = new AppointmentController();
 const providerAppointmentsController = new ProviderAppointmentsController();
+
 appointmentsRouter.use(ensureAuthenticated);
 
 appointmentsRouter.post(
