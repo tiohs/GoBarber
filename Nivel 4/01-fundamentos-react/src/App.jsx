@@ -1,6 +1,6 @@
 import { Header } from "./components/Header";
 import { wrapper } from "./App.module.css";
-import { Post } from "./components/App";
+import { Post } from "./components/Post";
 import "./global.css";
 import { Sidebar } from "./components/Sidebar";
 function App() {
