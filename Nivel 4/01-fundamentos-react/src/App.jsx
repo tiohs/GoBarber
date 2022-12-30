@@ -10,14 +10,8 @@ function App() {
       <div className={wrapper}>
         <Sidebar />
         <main>
-          <Post
-            author="Hamilton Silva"
-            content="Olá mundo estamos vivos graças a Deus "
-          />
-          <Post
-            author="Tio HS"
-            content="Olá mundo estamos vivos graças a Deus ! "
-          />
+          <Post />
+          <Post />
         </main>
       </div>
     </div>

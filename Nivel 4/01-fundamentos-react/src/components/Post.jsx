@@ -1,7 +1,7 @@
 import styles from "./Post.module.css";
 import imgAvatar from "../assets/dc.jpeg";
 
-export function Post(props) {
+export function Post() {
   return (
     <article className={styles.post}>
       <header>
@@ -21,6 +21,13 @@ export function Post(props) {
         <p>Estou a criar um projecto com a rockeseat </p>
         <a href="">#Estudar</a> <a href="">#Go</a> <a href="">#uniTenda</a>{" "}
       </div>
+      <form className={styles.commentForm}>
+        <strong>Deixe seu feedback</strong>
+        <textarea placeholder="Deixe um comentário "></textarea>
+        <footer>
+          <button type="submit">Comentar</button>
+        </footer>
+      </form>
     </article>
   );
 }
