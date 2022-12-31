@@ -1,4 +1,4 @@
-// import { PencilLine } from 'phosphor-react';
+import { PencilLine } from "phosphor-react";
 
 import styles from "./Sidebar.module.css";
 import img from "../assets/bg.jpg";
@@ -15,8 +15,10 @@ export function Sidebar() {
         <span>Dev</span>
       </div>
       <footer>
-        {/* <PencilLine size={20}/> */}
-        <a href="">Editar o seu Perfil</a>
+        <a href="">
+          <PencilLine size={20} />
+          Editar Perfil
+        </a>
       </footer>
     </div>
   );

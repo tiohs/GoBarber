@@ -1,4 +1,4 @@
-// import { Trash, ThumbsUp } from 'phosphor-react';
+import { Trash, ThumbsUp } from "phosphor-react";
 import styles from "./Comment.module.css";
 import imgAvatar from "../assets/dc.jpeg";
 import { Avatar } from "./Avatar";
@@ -19,13 +19,16 @@ export function Comment() {
                 Cerca de 1h atrás
               </time>
             </div>
-            <button>a{/* <Trash size={20}> */}</button>
+            <button>
+              {" "}
+              <Trash size={24} />{" "}
+            </button>
           </header>
           <p>Muito bom devon, parabéns</p>
         </div>
         <footer>
           <button>
-            {/* <ThumbsUp size={24}> */} Aplaudir <span> 100</span>
+            <ThumbsUp size={20} /> Aplaudir <span> 100</span>
           </button>
         </footer>
       </div>
