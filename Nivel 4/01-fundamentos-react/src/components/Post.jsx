@@ -1,29 +1,53 @@
 import styles from "./Post.module.css";
-import imgAvatar from "../assets/dc.jpeg";
+import { useState } from "react";
+import { format, formatDistanceToNow } from "date-fns";
+import pt from "date-fns/locale/pt";
 import { Comment } from "./Comment";
 import { Avatar } from "./Avatar";
 
-export function Post() {
+export function Post({ author, publishedAt, content }) {
+  const [comments, setComments] = useState([1, 2]);
+  const publishedDateFormat = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {
+    locale: pt,
+  });
+
+  const publishedDateRelativeTNow = formatDistanceToNow(publishedAt, {
+    locale: pt,
+    addSuffix: true,
+  });
+
+  function handleCreateNewComment() {
+    event.preventDefault();
+    setComments([comments.length + 1, ...comments]);
+  }
   return (
     <article className={styles.post}>
       <header>
         <div className={styles.author}>
-          <Avatar src={imgAvatar} />
+          <Avatar src={author.avatarUrl} />
           <div className={styles.authorInfo}>
-            <strong>Hamilton Silva</strong>
-            <span>Dev</span>
+            <strong>{author.name}</strong>
+            <span>{author.role}</span>
           </div>
         </div>
-        <time title="11 de Maio as 08:13h " dateTime="2022-05-11 04:12:12">
-          Públicado há 1h
+        <time title={publishedDateFormat} dateTime={publishedAt.toISOString()}>
+          {publishedDateRelativeTNow}
         </time>
       </header>
       <div className={styles.content}>
-        <p>Fala galera!</p>
-        <p>Estou a criar um projecto com a rockeseat </p>
-        <a href="">#Estudar</a> <a href="">#Go</a> <a href="">#uniTenda</a>{" "}
+        {content.map((line) => {
+          if (line.type === "paragraph") {
+            return <p>{line.content}</p>;
+          } else if (line.type === "link") {
+            return (
+              <p>
+                <a href="#">{line.content}</a>
+              </p>
+            );
+          }
+        })}
       </div>
-      <form className={styles.commentForm}>
+      <form onSubmit={handleCreateNewComment} className={styles.commentForm}>
         <strong>Deixe seu feedback</strong>
         <textarea placeholder="Deixe um comentário "></textarea>
         <footer>
@@ -31,9 +55,9 @@ export function Post() {
         </footer>
       </form>
       <div className={styles.commentList}>
-        <Comment />
-        <Comment />
-        <Comment />
+        {comments.map((item) => {
+          return <Comment />;
+        })}
       </div>
     </article>
   );

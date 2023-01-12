@@ -47,8 +47,15 @@ function App() {
       <div className={wrapper}>
         <Sidebar />
         <main>
-          <Post />
-          <Post />
+          {posts.map((post) => {
+            return (
+              <Post
+                author={post.author}
+                content={post.content}
+                publishedAt={post.publishedAt}
+              />
+            );
+          })}
         </main>
       </div>
     </div>
