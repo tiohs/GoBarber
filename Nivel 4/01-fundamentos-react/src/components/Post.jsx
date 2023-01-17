@@ -23,12 +23,16 @@ export function Post({ author, publishedAt, content }) {
   }
   function handleCreateNewComment() {
     event.preventDefault();
-
     setComments([newCommentText, ...comments]);
     setNewCommentText(" ");
   }
 
-  function deleteComment(comment) {}
+  function deleteComment(commentToDelete) {
+    const commentsWithoutDeletedOne = comments.filter((comment) => {
+      return comment !== commentToDelete;
+    });
+    setComments(commentsWithoutDeletedOne);
+  }
   return (
     <article className={styles.post}>
       <header>
@@ -62,7 +66,7 @@ export function Post({ author, publishedAt, content }) {
           name="comment"
           value={newCommentText}
           onChange={handleNewCommentChange}
-          placeholder="Deixe um comentário "
+          placeholder="Deixe um comentário"
         ></textarea>
         <footer>
           <button type="submit">Comentar</button>
