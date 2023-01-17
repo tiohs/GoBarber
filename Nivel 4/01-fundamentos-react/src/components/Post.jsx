@@ -27,6 +27,8 @@ export function Post({ author, publishedAt, content }) {
     setComments([newCommentText, ...comments]);
     setNewCommentText(" ");
   }
+
+  function deleteComment(comment) {}
   return (
     <article className={styles.post}>
       <header>
@@ -68,7 +70,13 @@ export function Post({ author, publishedAt, content }) {
       </form>
       <div className={styles.commentList}>
         {comments.map((item) => {
-          return <Comment key={item} content={item} />;
+          return (
+            <Comment
+              key={item}
+              content={item}
+              onDeleteComment={deleteComment}
+            />
+          );
         })}
       </div>
     </article>
