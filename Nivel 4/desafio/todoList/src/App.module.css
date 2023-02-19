@@ -1,0 +1,44 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 1;
+}
+
+.addTodo {
+  max-width: 762px;
+  width: 100%;
+  margin-top: -1.6875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3.375rem;
+  gap: 8px;
+}
+
+.addTodo button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 5.625rem;
+  height: 3.25rem;
+  border-radius: 8px;
+  padding: 1rem;
+  font-size: 14px;
+  background-color: var(--blue-dark);
+  border: none;
+  color: var(--white);
+}
+
+.addTodo input {
+  height: 100%;
+  background-color: var(--gray-500);
+  border-radius: 1px solid var(--black);
+  border: none;
+  flex-grow: 1;
+  padding: 16px;
+  font-size: 1rem;
+  color: var(--300);
+  border-radius: 8px;
+}
