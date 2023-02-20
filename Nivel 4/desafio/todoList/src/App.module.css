@@ -42,3 +42,51 @@
   color: var(--300);
   border-radius: 8px;
 }
+
+.content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 4rem;
+}
+
+.header {
+  max-width: 762px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.count {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.count span {
+  font-size: 0.75rem;
+  line-height: 0.9375rem;
+  font-weight: 700;
+  color: var(--gray-200);
+  padding: 2px 8px;
+  background-color: var(--gray-400);
+  border-radius: 999px;
+}
+
+.count strong {
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 1.0625rem;
+}
+
+.count strong.blue {
+  color: var(--blue);
+}
+
+.listItem {
+  margin-top: 1rem;
+  max-width: 762px;
+  width: 100%;
+}
