@@ -90,3 +90,17 @@
   max-width: 762px;
   width: 100%;
 }
+
+.filter button {
+  background-color: transparent;
+  border: none;
+  margin: 1rem;
+  color: var(--gray-300);
+}
+
+.filter .active {
+  border-bottom: 1px solid var(--purple);
+  padding-bottom: 0.0625rem;
+  color: var(--gray-200);
+  transition: 1s;
+}

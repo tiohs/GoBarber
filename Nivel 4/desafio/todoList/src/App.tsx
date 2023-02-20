@@ -14,6 +14,7 @@ export interface ItemProps {
 }
 
 function App() {
+  const [stateFilter, setStateFilter] = useState("all");
   const [itemList, setItemList] = useState<ItemProps[]>(
     !localStorage.getItem("@todo-ignite-09283jd37r37fg8g")
       ? []
@@ -29,8 +30,17 @@ function App() {
     setIsCompletes(completes);
   }, [itemList]);
 
+  function handFilter(id: number) {
+    if (id === 0) {
+      setStateFilter("all");
+    } else if (id === 1) {
+      setStateFilter("done");
+    } else {
+      setStateFilter("notDone");
+    }
+  }
   function handleDelete(id: string) {
-    const newItemList = itemList.filter((item: ItemProps) => item.id === id);
+    const newItemList = itemList.filter((item: ItemProps) => item.id !== id);
     setItemList(newItemList);
   }
   function handleChangeIsCompleted(index: number) {
@@ -74,6 +84,26 @@ function App() {
           <div className={styled.count}>
             <strong className={styled.blue}>Tarefas criadas</strong>{" "}
             <span>{itemList.length}</span>
+          </div>
+          <div className={styled.filter}>
+            <button
+              className={stateFilter === "all" ? styled.active : ""}
+              onClick={() => handFilter(0)}
+            >
+              Todos
+            </button>
+            <button
+              className={stateFilter === "done" ? styled.active : ""}
+              onClick={() => handFilter(1)}
+            >
+              Feitos
+            </button>
+            <button
+              className={stateFilter === "notDone" ? styled.active : ""}
+              onClick={() => handFilter(2)}
+            >
+              Não Feitos
+            </button>
           </div>
           <div className={styled.count}>
             <strong className={styled.purple}>Concluidas</strong>
