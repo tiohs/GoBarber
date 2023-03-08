@@ -1,8 +1,8 @@
-import { ButtonContainer, ButtonVariant } from './Button.styles';
+import { ButtonContainer, ButtonVariant } from './Button.styles'
 
 interface PropsButton {
-  variant?: ButtonVariant;
+  variant?: ButtonVariant
 }
-export function Button({ variant = 'primary' }: PropsButton){
+export function Button({ variant = 'primary' }: PropsButton) {
   return <ButtonContainer variant={variant}>Send</ButtonContainer>
-}  
+}
