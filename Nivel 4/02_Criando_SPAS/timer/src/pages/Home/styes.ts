@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const HomeContainer = styled.main`
   flex: 1;
 
+  padding: 7.5rem;
   display: flex;
   flex-direction: column;
   align-content: center;
@@ -37,9 +38,20 @@ const BaseInput = styled.input`
   font-size: inherit;
   padding: 0 0.5rem;
   color: ${(props) => props.theme['gray-100']};
+
+  &:focus {
+    box-shadow: none;
+    border-color: ${(props) => props.theme['gray-500']};
+  }
+  &::placeholder {
+    color: ${(props) => props.theme['gray-500']};
+  }
 `
 export const TaskInput = styled(BaseInput)`
   flex: 1;
+  &::-webkit-calendar-picker-indicador {
+    display: none !important;
+  }
 `
 
 export const MinutesAmountInput = styled(BaseInput)`
