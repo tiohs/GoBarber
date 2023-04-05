@@ -36,3 +36,8 @@ http://localhost:3000/history
 http://localhost:3000/adimn
 http://localhost:3000/admin/history
 ```
+
+# Modo controlled e uncontrolled 
+
+Controlled - Mater em em tempo real a informação 
+Uncontrolled - Não mate as atualizações em real time mais tem mais fluidez 
