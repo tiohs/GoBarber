@@ -39,5 +39,9 @@ http://localhost:3000/admin/history
 
 # Modo controlled e uncontrolled 
 
-Controlled - Mater em em tempo real a informação 
-Uncontrolled - Não mate as atualizações em real time mais tem mais fluidez 
+**Controlled** - Mater em em tempo real a informação do form 
+**Uncontrolled** - Não mate as atualizações em real time mais tem mais fluidez 
+
+**Prop Drilling** - Quando a gente tem muitos propriedades Apenas para
+comunicação entre componente para evitar isso a gente usa **ContextAPI** permite
+compartilhar informações entre vários componentes ao mesmo tempo ao nosso tempo 
