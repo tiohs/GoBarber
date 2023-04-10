@@ -19,54 +19,18 @@ export function History() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Comer</td>
-              <td>30 minutos</td>
-              <td>Há cerca de 1 meses</td>
-              <td>
-                <Status statusColor="green">Concluído</Status>
-              </td>
-            </tr>
-            <tr>
-              <td>Comer</td>
-              <td>30 minutos</td>
-              <td>Há cerca de 1 meses</td>
-              <td>
-                <Status statusColor="green">Concluído</Status>
-              </td>
-            </tr>
-            <tr>
-              <td>Comer</td>
-              <td>30 minutos</td>
-              <td>Há cerca de 1 meses</td>
-              <td>
-                <Status statusColor="green">Concluído</Status>
-              </td>
-            </tr>
-            <tr>
-              <td>Comer</td>
-              <td>30 minutos</td>
-              <td>Há cerca de 1 meses</td>
-              <td>
-                <Status statusColor="green">Concluído</Status>
-              </td>
-            </tr>
-            <tr>
-              <td>Comer</td>
-              <td>30 minutos</td>
-              <td>Há cerca de 1 meses</td>
-              <td>
-                <Status statusColor="green">Concluído</Status>
-              </td>
-            </tr>
-            <tr>
-              <td>Comer</td>
-              <td>30 minutos</td>
-              <td>Há cerca de 1 meses</td>
-              <td>
-                <Status statusColor="green">Concluído</Status>
-              </td>
-            </tr>
+            {cycles.map((cycles) => {
+              return (
+                <tr key={cycles.id}>
+                  <td>{cycles.task}</td>
+                  <td>{cycles.minutesAmount}</td>
+                  <td>{cycles.startDate.toDateString()}</td>
+                  <td>
+                    <Status statusColor="green">Concluído</Status>
+                  </td>
+                </tr>
+              )
+            })}
           </tbody>
         </table>
       </HistoryList>
