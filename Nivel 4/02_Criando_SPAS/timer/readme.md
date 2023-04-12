@@ -45,3 +45,7 @@ http://localhost:3000/admin/history
 **Prop Drilling** - Quando a gente tem muitos propriedades Apenas para
 comunicação entre componente para evitar isso a gente usa **ContextAPI** permite
 compartilhar informações entre vários componentes ao mesmo tempo ao nosso tempo 
+
+## useReducer
+
+Ele consegue agregar todas action que um estado tem , resumindo ele pega todos os methods de um estado e agrega.
